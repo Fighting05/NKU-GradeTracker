@@ -47,8 +47,8 @@ async def get_login_payload(username, password):
     return final_payload
 
 async def main():
-    username = "2311990"
-    password = "Nk20051205"  # 你的密码
+    username = ""
+    password = ""  # 你的密码
     
     payload = await get_login_payload(username, password)
     
