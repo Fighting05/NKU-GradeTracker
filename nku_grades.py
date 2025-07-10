@@ -221,8 +221,8 @@ class WebVPNGradeChecker:
             self.session.headers['Content-Type'] = 'text/plain;charset=UTF-8'
             
             self.session.post(input_url, json={"name": "", "type": "text", "value": self.username})
-            self.session.post(input_url, json={"name": "", "type": "password", "value": "Nk20051205"})
-            
+            self.session.post(input_url, json={"name": "", "type": "password", "value": self.encrypted_password})
+        
             # 提交登录
             self.log("提交登录请求...")
             login_url = f"{self.base_url}/https/77726476706e69737468656265737421f9f64cd22931665b7f01c7a99c406d36af/api/v1/login"
