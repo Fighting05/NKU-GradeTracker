@@ -8,14 +8,10 @@ import os
 from datetime import datetime, timedelta
 import webbrowser
 import time
-import asyncio
 import sys
 
 # 导入你的核心功能类
 from nku_grades import WebVPNGradeChecker, GradeMonitor
-
-# 导入密码获取功能
-from get_encrypted_password import get_login_payload
 
 # 设置主题
 ctk.set_appearance_mode("dark")
@@ -139,9 +135,6 @@ class ModernGradeApp(ctk.CTk):
         self.current_semester_id = "4324"  # 当前选中的学期ID
         self.semester_options = []  # 动态获取的学期选项
         self.account_verified = False  # 账号验证状态
-        
-        # 密码获取相关变量
-        self.password_getting = False
         
         # 创建界面
         self.create_widgets()
@@ -277,19 +270,7 @@ class ModernGradeApp(ctk.CTk):
         
         # 密码输入
         self.password_var = tk.StringVar(value=self.config.get('password', ''))
-        self.create_input_field(account_card, "加密密码", self.password_var, "🔐", show="*")
-        
-        # 密码获取按钮
-        password_get_btn = ctk.CTkButton(
-            account_card,
-            text="🔑 获取加密密码",
-            height=32,
-            font=ctk.CTkFont(size=13),
-            fg_color=("#9932CC", "#4B0082"),
-            hover_color=("#4B0082", "#9932CC"),
-            command=self.show_password_getter_window
-        )
-        password_get_btn.pack(fill="x", padx=15, pady=(0, 8))
+        self.create_input_field(account_card, "WebVPN密码", self.password_var, "🔐", show="*")
         
         # Token输入
         self.token_var = tk.StringVar(value=self.config.get('token', ''))
@@ -334,21 +315,9 @@ class ModernGradeApp(ctk.CTk):
         help_frame = ctk.CTkFrame(account_card, fg_color="transparent")
         help_frame.pack(fill="x", padx=15, pady=(0, 8))  # 减少间距
         
-        help_btn1 = ctk.CTkButton(
-            help_frame,
-            text="如何手动获取密码？",
-            font=ctk.CTkFont(size=11),
-            fg_color="transparent",
-            text_color=("blue", "light blue"),
-            hover=False,
-            anchor="w",
-            command=self.show_password_help
-        )
-        help_btn1.pack(side="left")
-        
         help_btn2 = ctk.CTkButton(
             help_frame,
-            text="获取Token",
+            text="如何获取Token？",
             font=ctk.CTkFont(size=11),
             fg_color="transparent", 
             text_color=("blue", "light blue"),
@@ -356,7 +325,7 @@ class ModernGradeApp(ctk.CTk):
             anchor="e",
             command=self.show_token_help
         )
-        help_btn2.pack(side="right")
+        help_btn2.pack(fill="x")
         
         # 学期选择框架
         semester_frame = ctk.CTkFrame(self.left_panel)
@@ -471,264 +440,6 @@ class ModernGradeApp(ctk.CTk):
         )
         self.status_label.pack(expand=True)
         
-    def show_password_getter_window(self):
-        """显示密码获取弹窗"""
-        if self.password_getting:
-            messagebox.showwarning("提示", "密码获取正在进行中，请稍候...")
-            return
-            
-        getter_window = ctk.CTkToplevel(self)
-        getter_window.title("🔑 密码获取助手")
-        getter_window.geometry("650x700")
-        getter_window.grab_set()
-        
-        # 标题区域
-        title_frame = ctk.CTkFrame(getter_window, fg_color=("blue", "dark blue"), height=80)
-        title_frame.pack(fill="x", padx=20, pady=20)
-        title_frame.pack_propagate(False)
-        
-        ctk.CTkLabel(
-            title_frame,
-            text="🔑 密码获取助手",
-            font=ctk.CTkFont(size=24, weight="bold"),
-            text_color="white"
-        ).pack(expand=True)
-        
-        # 主内容区域
-        main_frame = ctk.CTkFrame(getter_window)
-        main_frame.pack(fill="both", expand=True, padx=20, pady=(0, 20))
-        
-        # 功能说明
-        desc_frame = ctk.CTkFrame(main_frame, fg_color=("gray90", "gray20"))
-        desc_frame.pack(fill="x", padx=20, pady=(20, 15))
-        
-        ctk.CTkLabel(
-            desc_frame,
-            text="✨ 功能说明",
-            font=ctk.CTkFont(size=14, weight="bold")
-        ).pack(anchor="w", padx=15, pady=(10, 5))
-        
-        ctk.CTkLabel(
-            desc_frame,
-            text="• 自动访问南开WebVPN登录页面\n• 使用浏览器引擎模拟登录操作\n• 自动提取加密后的密码\n• 无需手动F12查看网络请求",
-            font=ctk.CTkFont(size=12),
-            anchor="w",
-            justify="left"
-        ).pack(fill="x", padx=15, pady=(0, 10))
-        
-        # 学号输入
-        ctk.CTkLabel(
-            main_frame, 
-            text="📝 学号", 
-            font=ctk.CTkFont(size=14, weight="bold")
-        ).pack(anchor="w", padx=20, pady=(10, 5))
-        
-        username_entry = ctk.CTkEntry(
-            main_frame, 
-            height=40, 
-            font=ctk.CTkFont(size=14),
-            placeholder_text="请输入学号"
-        )
-        username_entry.pack(fill="x", padx=20, pady=(0, 15))
-        username_entry.insert(0, self.username_var.get())
-        
-        # 原始密码输入
-        ctk.CTkLabel(
-            main_frame, 
-            text="🔒 WebVPN原始密码", 
-            font=ctk.CTkFont(size=14, weight="bold")
-        ).pack(anchor="w", padx=20, pady=(0, 5))
-        
-        password_frame = ctk.CTkFrame(main_frame, fg_color="transparent")
-        password_frame.pack(fill="x", padx=20, pady=(0, 15))
-        
-        password_entry = ctk.CTkEntry(
-            password_frame, 
-            height=40, 
-            font=ctk.CTkFont(size=14),
-            show="*",
-            placeholder_text="请输入WebVPN原始密码"
-        )
-        password_entry.pack(side="left", fill="x", expand=True, padx=(0, 10))
-        
-        # 密码显示切换按钮
-        show_password_var = tk.BooleanVar()
-        def toggle_password():
-            if show_password_var.get():
-                password_entry.configure(show="")
-                show_btn.configure(text="隐藏")
-            else:
-                password_entry.configure(show="*")
-                show_btn.configure(text="显示")
-            show_password_var.set(not show_password_var.get())
-        
-        show_btn = ctk.CTkButton(
-            password_frame,
-            text="显示",
-            width=60,
-            height=40,
-            font=ctk.CTkFont(size=12),
-            fg_color="transparent",
-            border_width=1,
-            command=toggle_password
-        )
-        show_btn.pack(side="right")
-        
-        # 隐私说明
-        privacy_frame = ctk.CTkFrame(main_frame, fg_color=("green", "dark green"))
-        privacy_frame.pack(fill="x", padx=20, pady=(0, 15))
-        
-        ctk.CTkLabel(
-            privacy_frame,
-            text="🔒 隐私承诺",
-            font=ctk.CTkFont(size=14, weight="bold"),
-            text_color="white"
-        ).pack(anchor="w", padx=15, pady=(10, 5))
-        
-        ctk.CTkLabel(
-            privacy_frame,
-            text="• 所有操作在本地完成，不上传任何数据\n• 原始密码仅用于获取加密密码\n• 获取成功后立即清空原始密码\n• 如有顾虑，可使用手动获取方式",
-            font=ctk.CTkFont(size=11),
-            anchor="w",
-            justify="left",
-            text_color="white"
-        ).pack(fill="x", padx=15, pady=(0, 10))
-        
-        # 状态显示
-        status_label = ctk.CTkLabel(
-            main_frame, 
-            text="", 
-            font=ctk.CTkFont(size=12),
-            height=30
-        )
-        status_label.pack(fill="x", padx=20, pady=(0, 15))
-        
-        # 按钮区域
-        button_frame = ctk.CTkFrame(main_frame, fg_color="transparent")
-        button_frame.pack(fill="x", padx=20, pady=(0, 20))
-        
-        # 获取按钮
-        get_btn = ctk.CTkButton(
-            button_frame,
-            text="🌐 开始获取",
-            height=45,
-            font=ctk.CTkFont(size=16, weight="bold"),
-            fg_color=("green", "dark green"),
-            command=lambda: self.start_password_getting(
-                username_entry.get(), 
-                password_entry.get(), 
-                status_label, 
-                get_btn, 
-                getter_window
-            )
-        )
-        get_btn.pack(side="left", fill="x", expand=True, padx=(0, 10))
-        
-        # 关闭按钮
-        close_btn = ctk.CTkButton(
-            button_frame,
-            text="关闭",
-            height=45,
-            font=ctk.CTkFont(size=16),
-            fg_color=("gray", "dark gray"),
-            command=getter_window.destroy
-        )
-        close_btn.pack(side="right", fill="x", expand=True, padx=(10, 0))
-        
-    def start_password_getting(self, username, password, status_label, get_btn, window):
-        """开始获取密码"""
-        if not username.strip():
-            messagebox.showerror("错误", "请输入学号")
-            return
-        
-        if not password.strip():
-            messagebox.showerror("错误", "请输入WebVPN原始密码")
-            return
-        
-        self.password_getting = True
-        get_btn.configure(state="disabled", text="🔄 获取中...")
-        status_label.configure(text="🔄 正在获取加密密码，请稍候...", text_color="yellow")
-        self.set_status("🔄 获取加密密码中...", "yellow")
-        self.log("🔑 开始在线获取加密密码...")
-        
-        # 在新线程中执行
-        thread = threading.Thread(target=self._get_password_thread, args=(username, password, status_label, get_btn, window))
-        thread.daemon = True
-        thread.start()
-    
-    def _get_password_thread(self, username, password, status_label, get_btn, window):
-        """获取密码线程"""
-        try:
-            # 设置浏览器路径（如果是打包版本）
-            browser_path = self.get_browser_executable_path()
-            if browser_path:
-                os.environ['PLAYWRIGHT_BROWSERS_PATH'] = os.path.dirname(browser_path)
-            
-            # 直接调用 get_encrypted_password.py 中的函数
-            payload = asyncio.run(get_login_payload(username, password))
-            
-            if isinstance(payload, dict) and 'password' in payload:
-                encrypted_password = payload['password']
-                self.after(0, self._on_password_success, encrypted_password, status_label, get_btn, window)
-            else:
-                self.after(0, self._on_password_failed, status_label, get_btn)
-                
-        except Exception as e:
-            self.after(0, self._on_password_error, str(e), status_label, get_btn)
-    
-    def _on_password_success(self, encrypted_password, status_label, get_btn, window):
-        """密码获取成功回调"""
-        self.password_var.set(encrypted_password)
-        
-        self.log(f"✅ 成功获取加密密码: {encrypted_password}")
-        status_label.configure(text="✅ 获取成功！加密密码已自动填入", text_color="green")
-        self.set_status("✅ 密码获取成功", "green")
-        
-        # 恢复按钮状态
-        get_btn.configure(state="normal", text="🌐 开始获取")
-        self.password_getting = False
-        
-        # 显示成功消息
-        messagebox.showinfo(
-            "获取成功",
-            f"✅ 已成功获取加密密码！\n\n{encrypted_password}\n\n• 密码已自动填入加密密码框\n• 现在可以使用查询功能了"
-        )
-        
-        # 关闭弹窗
-        window.destroy()
-    
-    def _on_password_failed(self, status_label, get_btn):
-        """密码获取失败回调"""
-        self.log("❌ 获取加密密码失败")
-        status_label.configure(text="❌ 获取失败，请检查网络和密码", text_color="red")
-        self.set_status("❌ 密码获取失败", "red")
-        
-        # 恢复按钮状态
-        get_btn.configure(state="normal", text="🌐 开始获取")
-        self.password_getting = False
-        
-        # 显示失败消息
-        messagebox.showerror(
-            "获取失败",
-            "❌ 获取加密密码失败\n\n可能原因：\n• 网络连接问题\n• 学号或密码错误\n• WebVPN网站维护\n\n请检查后重试，或使用手动获取方式"
-        )
-    
-    def _on_password_error(self, error_msg, status_label, get_btn):
-        """密码获取错误回调"""
-        self.log(f"❌ 获取密码时出错: {error_msg}")
-        status_label.configure(text="❌ 获取过程出错", text_color="red")
-        self.set_status("❌ 获取过程出错", "red")
-        
-        # 恢复按钮状态
-        get_btn.configure(state="normal", text="🌐 开始获取")
-        self.password_getting = False
-        
-        # 显示错误消息
-        messagebox.showerror(
-            "获取出错",
-            f"❌ 获取密码时出错\n\n错误信息：\n{error_msg}\n\n请重试或使用手动获取方式"
-        )
-    
     def create_right_panel(self):
         # 右侧面板
         self.right_panel = ctk.CTkFrame(self.main_container)
@@ -836,7 +547,7 @@ class ModernGradeApp(ctk.CTk):
             messagebox.showerror("错误", "请输入学号")
             return
         if not self.password_var.get().strip():
-            messagebox.showerror("错误", "请输入加密密码")
+            messagebox.showerror("错误", "请输入WebVPN密码")
             return
             
         self.verify_btn.configure(state="disabled", text="验证中...")
@@ -1523,61 +1234,12 @@ class ModernGradeApp(ctk.CTk):
             messagebox.showerror("错误", "请输入学号")
             return False
         if not self.password_var.get().strip():
-            messagebox.showerror("错误", "请输入加密密码")
+            messagebox.showerror("错误", "请输入WebVPN密码")
             return False
         if need_token and not self.token_var.get().strip():
             messagebox.showerror("错误", "监控功能需要PushPlus Token")
             return False
         return True
-        
-    def show_password_help(self):
-        """显示密码获取帮助"""
-        help_window = ctk.CTkToplevel(self)
-        help_window.title("如何手动获取加密密码")
-        help_window.geometry("550x450")
-        help_window.grab_set()  # 模态窗口
-        
-        # 帮助内容
-        help_text = """手动获取加密密码步骤：
-
-1. 打开浏览器访问 https://webvpn.nankai.edu.cn
-
-2. 按 F12 打开开发者工具
-
-3. 切换到 Network（网络）标签
-
-4. 在登录页面输入：
-   - 学号：输入错误的学号（如 99999）
-   （这一步是为了阻止页面跳转，方便找到加密后的密码）
-   - 密码：输入你的正确密码
-
-5. 点击登录按钮
-
-6. 在 Network 中找到 "login?vpn-12-o2-iam.nankai.edu.cn&os=web"
-   (一般就是第一个请求)
-
-7. 查看请求详情，点击负载(payload)，就可以找到 password 字段的值
-
-8. 复制这个32位字符串即为加密密码
-
-💡 提示：
-- 一旦获取到加密密码，就不需要再次获取（除非学校更改加密方式）
-- 如果不想手动获取，可以使用程序的「获取加密密码」功能"""
-        
-        text_widget = ctk.CTkTextbox(
-            help_window, 
-            font=ctk.CTkFont(size=12),
-            wrap="word"
-        )
-        text_widget.pack(fill="both", expand=True, padx=15, pady=15)
-        text_widget.insert("1.0", help_text)
-        text_widget.configure(state="disabled")
-        
-        ctk.CTkButton(
-            help_window,
-            text="我知道了",
-            command=help_window.destroy
-        ).pack(pady=(0, 15))
         
     def show_token_help(self):
         """显示Token获取帮助"""

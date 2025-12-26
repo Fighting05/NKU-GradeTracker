@@ -12,13 +12,24 @@ import json
 import re
 import os
 from datetime import datetime
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad
+
+def encrypt_password(password):
+    """AES CBC加密南开大学WebVPN密码"""
+    key = "8bfa9ad090fbbf87e518f1ce24a93eee".encode('utf-8')
+    iv = "fbfae671950f423b58d49b91ff6a22b9".encode('utf-8')
+    cipher = AES.new(key, AES.MODE_CBC, iv[:16])
+    encrypted_hex = cipher.encrypt(pad(password.encode('utf-8'), AES.block_size)).hex()
+    return encrypted_hex
 
 class WebVPNGradeChecker:
-    def __init__(self, username, encrypted_password, log_callback=None):
+    def __init__(self, username, password, log_callback=None):
         self.session = requests.Session()
         self.base_url = "https://webvpn.nankai.edu.cn"
         self.username = username
-        self.encrypted_password = encrypted_password
+        self.password = password
+        self.encrypted_password = encrypt_password(password)
         self.semester_data = None
         self.log_callback = log_callback  # GUI日志回调函数
         
@@ -1206,7 +1217,7 @@ class GradeMonitor(WebVPNGradeChecker):
 if __name__ == "__main__":
     # 配置信息
     USERNAME = ""  # 学号
-    ENCRYPTED_PASSWORD = ""  # 加密后的密码
+    PASSWORD = ""  # WebVPN密码
     PUSHPLUS_TOKEN = ""  # PushPlus Token
     
     print("南开大学成绩查询工具")
@@ -1228,6 +1239,11 @@ if __name__ == "__main__":
         print("   ✅ 兼容22级百分制和23级等级制")
         
         # 获取监控参数
+        if not USERNAME:
+            USERNAME = input("请输入学号: ").strip()
+        if not PASSWORD:
+            PASSWORD = input("请输入WebVPN密码: ").strip()
+            
         semester_input = input(f"\n请输入要监控的学期ID (直接回车使用 4324): ").strip()
         semester_id = semester_input if semester_input else "4324"
         
@@ -1248,11 +1264,16 @@ if __name__ == "__main__":
         print("💡 按 Ctrl+C 可以停止监控")
         print("="*50)
         
-        monitor = GradeMonitor(USERNAME, ENCRYPTED_PASSWORD, PUSHPLUS_TOKEN)
+        monitor = GradeMonitor(USERNAME, PASSWORD, PUSHPLUS_TOKEN)
         monitor.monitor_loop(semester_id=semester_id, interval=interval)
         
     else:
         # 普通查询模式
         print(f"\n🎯 启动普通查询模式")
-        checker = WebVPNGradeChecker(USERNAME, ENCRYPTED_PASSWORD)
+        if not USERNAME:
+            USERNAME = input("请输入学号: ").strip()
+        if not PASSWORD:
+            PASSWORD = input("请输入WebVPN密码: ").strip()
+            
+        checker = WebVPNGradeChecker(USERNAME, PASSWORD)
         checker.run(pushplus_token=PUSHPLUS_TOKEN)
