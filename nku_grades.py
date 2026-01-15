@@ -197,10 +197,21 @@ class WebVPNGradeChecker:
     def login(self):
         """完整的登录流程"""
         self.log("正在登录WebVPN...")
-        
+
         try:
-            # 初始化session
+            # 重新创建session（防止长时间监控导致session过期）
             self.log("初始化会话...")
+            self.session = requests.Session()
+            self.session.headers.update({
+                'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0',
+                'Accept': '*/*',
+                'Accept-Language': 'en-US,en;q=0.5',
+                'Accept-Encoding': 'gzip, deflate, br',
+                'Origin': 'https://webvpn.nankai.edu.cn',
+                'Sec-Fetch-Dest': 'empty',
+                'Sec-Fetch-Mode': 'cors',
+                'Sec-Fetch-Site': 'same-origin',
+            })
             self.session.get(f"{self.base_url}/")
             self.session.get(f"{self.base_url}/https/77726476706e69737468656265737421f9f64cd22931665b7f01c7a99c406d36af/login")
             

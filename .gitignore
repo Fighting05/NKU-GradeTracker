@@ -1,0 +1,26 @@
+# v2.0 版本不进入版本控制
+v2.0/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# 打包产物
+build/
+dist/
+
+# 配置和数据文件
+gui_config.json
+last_grades.json
+*.log
+
+# IDE
+.vscode/
+.idea/
+.claude/
+
+# 系统文件
+.DS_Store
+Thumbs.db
