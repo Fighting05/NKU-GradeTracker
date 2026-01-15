@@ -503,7 +503,7 @@ imported by:
   <a target="code" href="" type="text/plain"><tt>'org.python'</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#pickle">pickle</a>
+    <a href="#copy">copy</a>
  &#8226;   <a href="#xml.sax">xml.sax</a>
 
   </div>
@@ -4007,26 +4007,14 @@ imported by:
  &#8226;   <a href="#importlib_metadata._meta">importlib_metadata._meta</a>
  &#8226;   <a href="#importlib_resources.readers">importlib_resources.readers</a>
  &#8226;   <a href="#jaraco.collections">jaraco.collections</a>
+ &#8226;   <a href="#jaraco.context">jaraco.context</a>
+ &#8226;   <a href="#jaraco.functools">jaraco.functools</a>
  &#8226;   <a href="#numpy._typing">numpy._typing</a>
  &#8226;   <a href="#numpy._typing._array_like">numpy._typing._array_like</a>
  &#8226;   <a href="#numpy._typing._nested_sequence">numpy._typing._nested_sequence</a>
  &#8226;   <a href="#numpy.f2py._backends._backend">numpy.f2py._backends._backend</a>
  &#8226;   <a href="#numpy.f2py._backends._meson">numpy.f2py._backends._meson</a>
  &#8226;   <a href="#numpy.random._pickle">numpy.random._pickle</a>
- &#8226;   <a href="#packaging._elffile">packaging._elffile</a>
- &#8226;   <a href="#packaging._manylinux">packaging._manylinux</a>
- &#8226;   <a href="#packaging._musllinux">packaging._musllinux</a>
- &#8226;   <a href="#packaging._parser">packaging._parser</a>
- &#8226;   <a href="#packaging._tokenizer">packaging._tokenizer</a>
- &#8226;   <a href="#packaging.licenses">packaging.licenses</a>
- &#8226;   <a href="#packaging.licenses._spdx">packaging.licenses._spdx</a>
- &#8226;   <a href="#packaging.markers">packaging.markers</a>
- &#8226;   <a href="#packaging.metadata">packaging.metadata</a>
- &#8226;   <a href="#packaging.requirements">packaging.requirements</a>
- &#8226;   <a href="#packaging.specifiers">packaging.specifiers</a>
- &#8226;   <a href="#packaging.tags">packaging.tags</a>
- &#8226;   <a href="#packaging.utils">packaging.utils</a>
- &#8226;   <a href="#packaging.version">packaging.version</a>
  &#8226;   <a href="#pkg_resources">pkg_resources</a>
  &#8226;   <a href="#platformdirs">platformdirs</a>
  &#8226;   <a href="#platformdirs.android">platformdirs.android</a>
@@ -4048,7 +4036,6 @@ imported by:
  &#8226;   <a href="#setuptools._distutils.util">setuptools._distutils.util</a>
  &#8226;   <a href="#setuptools._path">setuptools._path</a>
  &#8226;   <a href="#setuptools._reqs">setuptools._reqs</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.context">setuptools._vendor.jaraco.context</a>
  &#8226;   <a href="#setuptools._vendor.packaging._elffile">setuptools._vendor.packaging._elffile</a>
  &#8226;   <a href="#setuptools._vendor.packaging._manylinux">setuptools._vendor.packaging._manylinux</a>
  &#8226;   <a href="#setuptools._vendor.packaging._musllinux">setuptools._vendor.packaging._musllinux</a>
@@ -4060,8 +4047,6 @@ imported by:
  &#8226;   <a href="#setuptools._vendor.packaging.tags">setuptools._vendor.packaging.tags</a>
  &#8226;   <a href="#setuptools._vendor.packaging.utils">setuptools._vendor.packaging.utils</a>
  &#8226;   <a href="#setuptools._vendor.packaging.version">setuptools._vendor.packaging.version</a>
- &#8226;   <a href="#setuptools._vendor.tomli._parser">setuptools._vendor.tomli._parser</a>
- &#8226;   <a href="#setuptools._vendor.tomli._re">setuptools._vendor.tomli._re</a>
  &#8226;   <a href="#setuptools.command._requirestxt">setuptools.command._requirestxt</a>
  &#8226;   <a href="#setuptools.command.bdist_egg">setuptools.command.bdist_egg</a>
  &#8226;   <a href="#setuptools.command.bdist_wheel">setuptools.command.bdist_wheel</a>
@@ -4089,6 +4074,8 @@ imported by:
  &#8226;   <a href="#soupsieve.css_types">soupsieve.css_types</a>
  &#8226;   <a href="#soupsieve.pretty">soupsieve.pretty</a>
  &#8226;   <a href="#soupsieve.util">soupsieve.util</a>
+ &#8226;   <a href="#tomli._parser">tomli._parser</a>
+ &#8226;   <a href="#tomli._re">tomli._re</a>
  &#8226;   <a href="#urllib3">urllib3</a>
  &#8226;   <a href="#urllib3._base_connection">urllib3._base_connection</a>
  &#8226;   <a href="#urllib3._collections">urllib3._collections</a>
@@ -5355,6 +5342,7 @@ imports:
   <div class="import">
 imported by:
     <a href="#ast">ast</a>
+ &#8226;   <a href="#backports.tarfile">backports.tarfile</a>
  &#8226;   <a href="#calendar">calendar</a>
  &#8226;   <a href="#code">code</a>
  &#8226;   <a href="#dis">dis</a>
@@ -5363,7 +5351,6 @@ imported by:
  &#8226;   <a href="#http.server">http.server</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#numpy.f2py.f2py2e">numpy.f2py.f2py2e</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#threadpoolctl">threadpoolctl</a>
  &#8226;   <a href="#tokenize">tokenize</a>
@@ -6301,7 +6288,7 @@ imported by:
 
 <div class="node">
   <a name="backports"></a>
-  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/setuptools/_vendor/backports/__init__.py" type="text/plain"><tt>backports</tt></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/backports/__init__.py" type="text/plain"><tt>backports</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
 imports:
     <a href="#backports.tarfile">backports.tarfile</a>
@@ -6311,7 +6298,7 @@ imports:
   <div class="import">
 imported by:
     <a href="#backports.tarfile">backports.tarfile</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.context">setuptools._vendor.jaraco.context</a>
+ &#8226;   <a href="#jaraco.context">jaraco.context</a>
 
   </div>
 
@@ -6319,17 +6306,69 @@ imported by:
 
 <div class="node">
   <a name="backports.tarfile"></a>
-  <a target="code" href="" type="text/plain"><tt>backports.tarfile</tt></a>
-<span class="moduletype">AliasNode</span>  <div class="import">
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/backports/tarfile/__init__.py" type="text/plain"><tt>backports.tarfile</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
 imports:
-    <a href="#backports">backports</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
+    <a href="#argparse">argparse</a>
+ &#8226;   <a href="#backports">backports</a>
+ &#8226;   <a href="#backports.tarfile.compat.py38">backports.tarfile.compat.py38</a>
+ &#8226;   <a href="#builtins">builtins</a>
+ &#8226;   <a href="#bz2">bz2</a>
+ &#8226;   <a href="#copy">copy</a>
+ &#8226;   <a href="#grp">grp</a>
+ &#8226;   <a href="#gzip">gzip</a>
+ &#8226;   <a href="#io">io</a>
+ &#8226;   <a href="#lzma">lzma</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#pwd">pwd</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#shutil">shutil</a>
+ &#8226;   <a href="#stat">stat</a>
+ &#8226;   <a href="#struct">struct</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#time">time</a>
+ &#8226;   <a href="#warnings">warnings</a>
+ &#8226;   <a href="#zlib">zlib</a>
 
   </div>
   <div class="import">
 imported by:
     <a href="#backports">backports</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.context">setuptools._vendor.jaraco.context</a>
+ &#8226;   <a href="#backports.tarfile.compat">backports.tarfile.compat</a>
+ &#8226;   <a href="#jaraco.context">jaraco.context</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="backports.tarfile.compat"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/backports/tarfile/compat/__init__.py" type="text/plain"><tt>backports.tarfile.compat</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imports:
+    <a href="#backports.tarfile">backports.tarfile</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#backports.tarfile.compat.py38">backports.tarfile.compat.py38</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="backports.tarfile.compat.py38"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/backports/tarfile/compat/py38.py" type="text/plain"><tt>backports.tarfile.compat.py38</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#backports.tarfile.compat">backports.tarfile.compat</a>
+ &#8226;   <a href="#sys">sys</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#backports.tarfile">backports.tarfile</a>
 
   </div>
 
@@ -6476,6 +6515,7 @@ imports:
 imported by:
     <a href="#idna.core">idna.core</a>
  &#8226;   <a href="#idna.intranges">idna.intranges</a>
+ &#8226;   <a href="#more_itertools.recipes">more_itertools.recipes</a>
  &#8226;   <a href="#multiprocessing.heap">multiprocessing.heap</a>
  &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#statistics">statistics</a>
@@ -6907,6 +6947,7 @@ imported by:
 imported by:
     <a href="#PIL.Image">PIL.Image</a>
  &#8226;   <a href="#PIL.ImageMath">PIL.ImageMath</a>
+ &#8226;   <a href="#backports.tarfile">backports.tarfile</a>
  &#8226;   <a href="#bz2">bz2</a>
  &#8226;   <a href="#codecs">codecs</a>
  &#8226;   <a href="#dataclasses">dataclasses</a>
@@ -6925,7 +6966,6 @@ imported by:
  &#8226;   <a href="#pydoc">pydoc</a>
  &#8226;   <a href="#reprlib">reprlib</a>
  &#8226;   <a href="#rlcompleter">rlcompleter</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
  &#8226;   <a href="#setuptools.config._validate_pyproject.formats">setuptools.config._validate_pyproject.formats</a>
  &#8226;   <a href="#site">site</a>
  &#8226;   <a href="#subprocess">subprocess</a>
@@ -6955,10 +6995,10 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#encodings.bz2_codec">encodings.bz2_codec</a>
+    <a href="#backports.tarfile">backports.tarfile</a>
+ &#8226;   <a href="#encodings.bz2_codec">encodings.bz2_codec</a>
  &#8226;   <a href="#fileinput">fileinput</a>
  &#8226;   <a href="#numpy.lib._datasource">numpy.lib._datasource</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#zipfile">zipfile</a>
@@ -7522,11 +7562,944 @@ imported by:
 
 <div class="node">
   <a name="chardet"></a>
-  <a target="code" href="" type="text/plain"><tt>chardet</tt></a>
-<span class="moduletype">MissingModule</span>  <div class="import">
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/__init__.py" type="text/plain"><tt>chardet</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imports:
+    <a href="#chardet.charsetgroupprober">chardet.charsetgroupprober</a>
+ &#8226;   <a href="#chardet.charsetprober">chardet.charsetprober</a>
+ &#8226;   <a href="#chardet.enums">chardet.enums</a>
+ &#8226;   <a href="#chardet.resultdict">chardet.resultdict</a>
+ &#8226;   <a href="#chardet.universaldetector">chardet.universaldetector</a>
+ &#8226;   <a href="#chardet.version">chardet.version</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
 imported by:
     <a href="#bs4.dammit">bs4.dammit</a>
+ &#8226;   <a href="#chardet.big5freq">chardet.big5freq</a>
+ &#8226;   <a href="#chardet.big5prober">chardet.big5prober</a>
+ &#8226;   <a href="#chardet.chardistribution">chardet.chardistribution</a>
+ &#8226;   <a href="#chardet.charsetgroupprober">chardet.charsetgroupprober</a>
+ &#8226;   <a href="#chardet.charsetprober">chardet.charsetprober</a>
+ &#8226;   <a href="#chardet.codingstatemachine">chardet.codingstatemachine</a>
+ &#8226;   <a href="#chardet.codingstatemachinedict">chardet.codingstatemachinedict</a>
+ &#8226;   <a href="#chardet.cp949prober">chardet.cp949prober</a>
+ &#8226;   <a href="#chardet.enums">chardet.enums</a>
+ &#8226;   <a href="#chardet.escprober">chardet.escprober</a>
+ &#8226;   <a href="#chardet.escsm">chardet.escsm</a>
+ &#8226;   <a href="#chardet.eucjpprober">chardet.eucjpprober</a>
+ &#8226;   <a href="#chardet.euckrfreq">chardet.euckrfreq</a>
+ &#8226;   <a href="#chardet.euckrprober">chardet.euckrprober</a>
+ &#8226;   <a href="#chardet.euctwfreq">chardet.euctwfreq</a>
+ &#8226;   <a href="#chardet.euctwprober">chardet.euctwprober</a>
+ &#8226;   <a href="#chardet.gb2312freq">chardet.gb2312freq</a>
+ &#8226;   <a href="#chardet.gb2312prober">chardet.gb2312prober</a>
+ &#8226;   <a href="#chardet.hebrewprober">chardet.hebrewprober</a>
+ &#8226;   <a href="#chardet.jisfreq">chardet.jisfreq</a>
+ &#8226;   <a href="#chardet.johabfreq">chardet.johabfreq</a>
+ &#8226;   <a href="#chardet.johabprober">chardet.johabprober</a>
+ &#8226;   <a href="#chardet.jpcntx">chardet.jpcntx</a>
+ &#8226;   <a href="#chardet.langbulgarianmodel">chardet.langbulgarianmodel</a>
+ &#8226;   <a href="#chardet.langgreekmodel">chardet.langgreekmodel</a>
+ &#8226;   <a href="#chardet.langhebrewmodel">chardet.langhebrewmodel</a>
+ &#8226;   <a href="#chardet.langrussianmodel">chardet.langrussianmodel</a>
+ &#8226;   <a href="#chardet.langthaimodel">chardet.langthaimodel</a>
+ &#8226;   <a href="#chardet.langturkishmodel">chardet.langturkishmodel</a>
+ &#8226;   <a href="#chardet.latin1prober">chardet.latin1prober</a>
+ &#8226;   <a href="#chardet.macromanprober">chardet.macromanprober</a>
+ &#8226;   <a href="#chardet.mbcharsetprober">chardet.mbcharsetprober</a>
+ &#8226;   <a href="#chardet.mbcsgroupprober">chardet.mbcsgroupprober</a>
+ &#8226;   <a href="#chardet.mbcssm">chardet.mbcssm</a>
+ &#8226;   <a href="#chardet.resultdict">chardet.resultdict</a>
+ &#8226;   <a href="#chardet.sbcharsetprober">chardet.sbcharsetprober</a>
+ &#8226;   <a href="#chardet.sbcsgroupprober">chardet.sbcsgroupprober</a>
+ &#8226;   <a href="#chardet.sjisprober">chardet.sjisprober</a>
+ &#8226;   <a href="#chardet.universaldetector">chardet.universaldetector</a>
+ &#8226;   <a href="#chardet.utf1632prober">chardet.utf1632prober</a>
+ &#8226;   <a href="#chardet.utf8prober">chardet.utf8prober</a>
+ &#8226;   <a href="#chardet.version">chardet.version</a>
  &#8226;   <a href="#requests">requests</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.big5freq"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/big5freq.py" type="text/plain"><tt>chardet.big5freq</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.chardistribution">chardet.chardistribution</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.big5prober"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/big5prober.py" type="text/plain"><tt>chardet.big5prober</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.chardistribution">chardet.chardistribution</a>
+ &#8226;   <a href="#chardet.codingstatemachine">chardet.codingstatemachine</a>
+ &#8226;   <a href="#chardet.mbcharsetprober">chardet.mbcharsetprober</a>
+ &#8226;   <a href="#chardet.mbcssm">chardet.mbcssm</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.mbcsgroupprober">chardet.mbcsgroupprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.chardistribution"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/chardistribution.py" type="text/plain"><tt>chardet.chardistribution</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.big5freq">chardet.big5freq</a>
+ &#8226;   <a href="#chardet.euckrfreq">chardet.euckrfreq</a>
+ &#8226;   <a href="#chardet.euctwfreq">chardet.euctwfreq</a>
+ &#8226;   <a href="#chardet.gb2312freq">chardet.gb2312freq</a>
+ &#8226;   <a href="#chardet.jisfreq">chardet.jisfreq</a>
+ &#8226;   <a href="#chardet.johabfreq">chardet.johabfreq</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.big5prober">chardet.big5prober</a>
+ &#8226;   <a href="#chardet.cp949prober">chardet.cp949prober</a>
+ &#8226;   <a href="#chardet.eucjpprober">chardet.eucjpprober</a>
+ &#8226;   <a href="#chardet.euckrprober">chardet.euckrprober</a>
+ &#8226;   <a href="#chardet.euctwprober">chardet.euctwprober</a>
+ &#8226;   <a href="#chardet.gb2312prober">chardet.gb2312prober</a>
+ &#8226;   <a href="#chardet.johabprober">chardet.johabprober</a>
+ &#8226;   <a href="#chardet.mbcharsetprober">chardet.mbcharsetprober</a>
+ &#8226;   <a href="#chardet.sjisprober">chardet.sjisprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.charsetgroupprober"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/charsetgroupprober.py" type="text/plain"><tt>chardet.charsetgroupprober</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.charsetprober">chardet.charsetprober</a>
+ &#8226;   <a href="#chardet.enums">chardet.enums</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.mbcsgroupprober">chardet.mbcsgroupprober</a>
+ &#8226;   <a href="#chardet.sbcsgroupprober">chardet.sbcsgroupprober</a>
+ &#8226;   <a href="#chardet.universaldetector">chardet.universaldetector</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.charsetprober"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/charsetprober.py" type="text/plain"><tt>chardet.charsetprober</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.enums">chardet.enums</a>
+ &#8226;   <a href="#logging">logging</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.charsetgroupprober">chardet.charsetgroupprober</a>
+ &#8226;   <a href="#chardet.escprober">chardet.escprober</a>
+ &#8226;   <a href="#chardet.hebrewprober">chardet.hebrewprober</a>
+ &#8226;   <a href="#chardet.latin1prober">chardet.latin1prober</a>
+ &#8226;   <a href="#chardet.macromanprober">chardet.macromanprober</a>
+ &#8226;   <a href="#chardet.mbcharsetprober">chardet.mbcharsetprober</a>
+ &#8226;   <a href="#chardet.sbcharsetprober">chardet.sbcharsetprober</a>
+ &#8226;   <a href="#chardet.universaldetector">chardet.universaldetector</a>
+ &#8226;   <a href="#chardet.utf1632prober">chardet.utf1632prober</a>
+ &#8226;   <a href="#chardet.utf8prober">chardet.utf8prober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.codingstatemachine"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/codingstatemachine.py" type="text/plain"><tt>chardet.codingstatemachine</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.codingstatemachinedict">chardet.codingstatemachinedict</a>
+ &#8226;   <a href="#chardet.enums">chardet.enums</a>
+ &#8226;   <a href="#logging">logging</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.big5prober">chardet.big5prober</a>
+ &#8226;   <a href="#chardet.cp949prober">chardet.cp949prober</a>
+ &#8226;   <a href="#chardet.escprober">chardet.escprober</a>
+ &#8226;   <a href="#chardet.eucjpprober">chardet.eucjpprober</a>
+ &#8226;   <a href="#chardet.euckrprober">chardet.euckrprober</a>
+ &#8226;   <a href="#chardet.euctwprober">chardet.euctwprober</a>
+ &#8226;   <a href="#chardet.gb2312prober">chardet.gb2312prober</a>
+ &#8226;   <a href="#chardet.johabprober">chardet.johabprober</a>
+ &#8226;   <a href="#chardet.mbcharsetprober">chardet.mbcharsetprober</a>
+ &#8226;   <a href="#chardet.sjisprober">chardet.sjisprober</a>
+ &#8226;   <a href="#chardet.utf8prober">chardet.utf8prober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.codingstatemachinedict"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/codingstatemachinedict.py" type="text/plain"><tt>chardet.codingstatemachinedict</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.codingstatemachine">chardet.codingstatemachine</a>
+ &#8226;   <a href="#chardet.escsm">chardet.escsm</a>
+ &#8226;   <a href="#chardet.mbcssm">chardet.mbcssm</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.cp949prober"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/cp949prober.py" type="text/plain"><tt>chardet.cp949prober</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.chardistribution">chardet.chardistribution</a>
+ &#8226;   <a href="#chardet.codingstatemachine">chardet.codingstatemachine</a>
+ &#8226;   <a href="#chardet.mbcharsetprober">chardet.mbcharsetprober</a>
+ &#8226;   <a href="#chardet.mbcssm">chardet.mbcssm</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.mbcsgroupprober">chardet.mbcsgroupprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.enums"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/enums.py" type="text/plain"><tt>chardet.enums</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#enum">enum</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.charsetgroupprober">chardet.charsetgroupprober</a>
+ &#8226;   <a href="#chardet.charsetprober">chardet.charsetprober</a>
+ &#8226;   <a href="#chardet.codingstatemachine">chardet.codingstatemachine</a>
+ &#8226;   <a href="#chardet.escprober">chardet.escprober</a>
+ &#8226;   <a href="#chardet.escsm">chardet.escsm</a>
+ &#8226;   <a href="#chardet.eucjpprober">chardet.eucjpprober</a>
+ &#8226;   <a href="#chardet.hebrewprober">chardet.hebrewprober</a>
+ &#8226;   <a href="#chardet.latin1prober">chardet.latin1prober</a>
+ &#8226;   <a href="#chardet.macromanprober">chardet.macromanprober</a>
+ &#8226;   <a href="#chardet.mbcharsetprober">chardet.mbcharsetprober</a>
+ &#8226;   <a href="#chardet.mbcsgroupprober">chardet.mbcsgroupprober</a>
+ &#8226;   <a href="#chardet.mbcssm">chardet.mbcssm</a>
+ &#8226;   <a href="#chardet.sbcharsetprober">chardet.sbcharsetprober</a>
+ &#8226;   <a href="#chardet.sjisprober">chardet.sjisprober</a>
+ &#8226;   <a href="#chardet.universaldetector">chardet.universaldetector</a>
+ &#8226;   <a href="#chardet.utf1632prober">chardet.utf1632prober</a>
+ &#8226;   <a href="#chardet.utf8prober">chardet.utf8prober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.escprober"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/escprober.py" type="text/plain"><tt>chardet.escprober</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.charsetprober">chardet.charsetprober</a>
+ &#8226;   <a href="#chardet.codingstatemachine">chardet.codingstatemachine</a>
+ &#8226;   <a href="#chardet.enums">chardet.enums</a>
+ &#8226;   <a href="#chardet.escsm">chardet.escsm</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.universaldetector">chardet.universaldetector</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.escsm"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/escsm.py" type="text/plain"><tt>chardet.escsm</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.codingstatemachinedict">chardet.codingstatemachinedict</a>
+ &#8226;   <a href="#chardet.enums">chardet.enums</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.escprober">chardet.escprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.eucjpprober"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/eucjpprober.py" type="text/plain"><tt>chardet.eucjpprober</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.chardistribution">chardet.chardistribution</a>
+ &#8226;   <a href="#chardet.codingstatemachine">chardet.codingstatemachine</a>
+ &#8226;   <a href="#chardet.enums">chardet.enums</a>
+ &#8226;   <a href="#chardet.jpcntx">chardet.jpcntx</a>
+ &#8226;   <a href="#chardet.mbcharsetprober">chardet.mbcharsetprober</a>
+ &#8226;   <a href="#chardet.mbcssm">chardet.mbcssm</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.mbcsgroupprober">chardet.mbcsgroupprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.euckrfreq"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/euckrfreq.py" type="text/plain"><tt>chardet.euckrfreq</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.chardistribution">chardet.chardistribution</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.euckrprober"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/euckrprober.py" type="text/plain"><tt>chardet.euckrprober</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.chardistribution">chardet.chardistribution</a>
+ &#8226;   <a href="#chardet.codingstatemachine">chardet.codingstatemachine</a>
+ &#8226;   <a href="#chardet.mbcharsetprober">chardet.mbcharsetprober</a>
+ &#8226;   <a href="#chardet.mbcssm">chardet.mbcssm</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.mbcsgroupprober">chardet.mbcsgroupprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.euctwfreq"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/euctwfreq.py" type="text/plain"><tt>chardet.euctwfreq</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.chardistribution">chardet.chardistribution</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.euctwprober"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/euctwprober.py" type="text/plain"><tt>chardet.euctwprober</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.chardistribution">chardet.chardistribution</a>
+ &#8226;   <a href="#chardet.codingstatemachine">chardet.codingstatemachine</a>
+ &#8226;   <a href="#chardet.mbcharsetprober">chardet.mbcharsetprober</a>
+ &#8226;   <a href="#chardet.mbcssm">chardet.mbcssm</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.mbcsgroupprober">chardet.mbcsgroupprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.gb2312freq"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/gb2312freq.py" type="text/plain"><tt>chardet.gb2312freq</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.chardistribution">chardet.chardistribution</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.gb2312prober"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/gb2312prober.py" type="text/plain"><tt>chardet.gb2312prober</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.chardistribution">chardet.chardistribution</a>
+ &#8226;   <a href="#chardet.codingstatemachine">chardet.codingstatemachine</a>
+ &#8226;   <a href="#chardet.mbcharsetprober">chardet.mbcharsetprober</a>
+ &#8226;   <a href="#chardet.mbcssm">chardet.mbcssm</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.mbcsgroupprober">chardet.mbcsgroupprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.hebrewprober"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/hebrewprober.py" type="text/plain"><tt>chardet.hebrewprober</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.charsetprober">chardet.charsetprober</a>
+ &#8226;   <a href="#chardet.enums">chardet.enums</a>
+ &#8226;   <a href="#chardet.sbcharsetprober">chardet.sbcharsetprober</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.sbcsgroupprober">chardet.sbcsgroupprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.jisfreq"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/jisfreq.py" type="text/plain"><tt>chardet.jisfreq</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.chardistribution">chardet.chardistribution</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.johabfreq"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/johabfreq.py" type="text/plain"><tt>chardet.johabfreq</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.chardistribution">chardet.chardistribution</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.johabprober"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/johabprober.py" type="text/plain"><tt>chardet.johabprober</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.chardistribution">chardet.chardistribution</a>
+ &#8226;   <a href="#chardet.codingstatemachine">chardet.codingstatemachine</a>
+ &#8226;   <a href="#chardet.mbcharsetprober">chardet.mbcharsetprober</a>
+ &#8226;   <a href="#chardet.mbcssm">chardet.mbcssm</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.mbcsgroupprober">chardet.mbcsgroupprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.jpcntx"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/jpcntx.py" type="text/plain"><tt>chardet.jpcntx</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.eucjpprober">chardet.eucjpprober</a>
+ &#8226;   <a href="#chardet.sjisprober">chardet.sjisprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.langbulgarianmodel"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/langbulgarianmodel.py" type="text/plain"><tt>chardet.langbulgarianmodel</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.sbcharsetprober">chardet.sbcharsetprober</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.sbcsgroupprober">chardet.sbcsgroupprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.langgreekmodel"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/langgreekmodel.py" type="text/plain"><tt>chardet.langgreekmodel</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.sbcharsetprober">chardet.sbcharsetprober</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.sbcsgroupprober">chardet.sbcsgroupprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.langhebrewmodel"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/langhebrewmodel.py" type="text/plain"><tt>chardet.langhebrewmodel</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.sbcharsetprober">chardet.sbcharsetprober</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.sbcsgroupprober">chardet.sbcsgroupprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.langrussianmodel"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/langrussianmodel.py" type="text/plain"><tt>chardet.langrussianmodel</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.sbcharsetprober">chardet.sbcharsetprober</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.sbcsgroupprober">chardet.sbcsgroupprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.langthaimodel"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/langthaimodel.py" type="text/plain"><tt>chardet.langthaimodel</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.sbcharsetprober">chardet.sbcharsetprober</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.sbcsgroupprober">chardet.sbcsgroupprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.langturkishmodel"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/langturkishmodel.py" type="text/plain"><tt>chardet.langturkishmodel</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.sbcharsetprober">chardet.sbcharsetprober</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.sbcsgroupprober">chardet.sbcsgroupprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.latin1prober"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/latin1prober.py" type="text/plain"><tt>chardet.latin1prober</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.charsetprober">chardet.charsetprober</a>
+ &#8226;   <a href="#chardet.enums">chardet.enums</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.universaldetector">chardet.universaldetector</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.macromanprober"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/macromanprober.py" type="text/plain"><tt>chardet.macromanprober</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.charsetprober">chardet.charsetprober</a>
+ &#8226;   <a href="#chardet.enums">chardet.enums</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.universaldetector">chardet.universaldetector</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.mbcharsetprober"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/mbcharsetprober.py" type="text/plain"><tt>chardet.mbcharsetprober</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.chardistribution">chardet.chardistribution</a>
+ &#8226;   <a href="#chardet.charsetprober">chardet.charsetprober</a>
+ &#8226;   <a href="#chardet.codingstatemachine">chardet.codingstatemachine</a>
+ &#8226;   <a href="#chardet.enums">chardet.enums</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.big5prober">chardet.big5prober</a>
+ &#8226;   <a href="#chardet.cp949prober">chardet.cp949prober</a>
+ &#8226;   <a href="#chardet.eucjpprober">chardet.eucjpprober</a>
+ &#8226;   <a href="#chardet.euckrprober">chardet.euckrprober</a>
+ &#8226;   <a href="#chardet.euctwprober">chardet.euctwprober</a>
+ &#8226;   <a href="#chardet.gb2312prober">chardet.gb2312prober</a>
+ &#8226;   <a href="#chardet.johabprober">chardet.johabprober</a>
+ &#8226;   <a href="#chardet.sjisprober">chardet.sjisprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.mbcsgroupprober"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/mbcsgroupprober.py" type="text/plain"><tt>chardet.mbcsgroupprober</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.big5prober">chardet.big5prober</a>
+ &#8226;   <a href="#chardet.charsetgroupprober">chardet.charsetgroupprober</a>
+ &#8226;   <a href="#chardet.cp949prober">chardet.cp949prober</a>
+ &#8226;   <a href="#chardet.enums">chardet.enums</a>
+ &#8226;   <a href="#chardet.eucjpprober">chardet.eucjpprober</a>
+ &#8226;   <a href="#chardet.euckrprober">chardet.euckrprober</a>
+ &#8226;   <a href="#chardet.euctwprober">chardet.euctwprober</a>
+ &#8226;   <a href="#chardet.gb2312prober">chardet.gb2312prober</a>
+ &#8226;   <a href="#chardet.johabprober">chardet.johabprober</a>
+ &#8226;   <a href="#chardet.sjisprober">chardet.sjisprober</a>
+ &#8226;   <a href="#chardet.utf8prober">chardet.utf8prober</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.universaldetector">chardet.universaldetector</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.mbcssm"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/mbcssm.py" type="text/plain"><tt>chardet.mbcssm</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.codingstatemachinedict">chardet.codingstatemachinedict</a>
+ &#8226;   <a href="#chardet.enums">chardet.enums</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.big5prober">chardet.big5prober</a>
+ &#8226;   <a href="#chardet.cp949prober">chardet.cp949prober</a>
+ &#8226;   <a href="#chardet.eucjpprober">chardet.eucjpprober</a>
+ &#8226;   <a href="#chardet.euckrprober">chardet.euckrprober</a>
+ &#8226;   <a href="#chardet.euctwprober">chardet.euctwprober</a>
+ &#8226;   <a href="#chardet.gb2312prober">chardet.gb2312prober</a>
+ &#8226;   <a href="#chardet.johabprober">chardet.johabprober</a>
+ &#8226;   <a href="#chardet.sjisprober">chardet.sjisprober</a>
+ &#8226;   <a href="#chardet.utf8prober">chardet.utf8prober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.resultdict"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/resultdict.py" type="text/plain"><tt>chardet.resultdict</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.universaldetector">chardet.universaldetector</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.sbcharsetprober"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/sbcharsetprober.py" type="text/plain"><tt>chardet.sbcharsetprober</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.charsetprober">chardet.charsetprober</a>
+ &#8226;   <a href="#chardet.enums">chardet.enums</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.hebrewprober">chardet.hebrewprober</a>
+ &#8226;   <a href="#chardet.langbulgarianmodel">chardet.langbulgarianmodel</a>
+ &#8226;   <a href="#chardet.langgreekmodel">chardet.langgreekmodel</a>
+ &#8226;   <a href="#chardet.langhebrewmodel">chardet.langhebrewmodel</a>
+ &#8226;   <a href="#chardet.langrussianmodel">chardet.langrussianmodel</a>
+ &#8226;   <a href="#chardet.langthaimodel">chardet.langthaimodel</a>
+ &#8226;   <a href="#chardet.langturkishmodel">chardet.langturkishmodel</a>
+ &#8226;   <a href="#chardet.sbcsgroupprober">chardet.sbcsgroupprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.sbcsgroupprober"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/sbcsgroupprober.py" type="text/plain"><tt>chardet.sbcsgroupprober</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.charsetgroupprober">chardet.charsetgroupprober</a>
+ &#8226;   <a href="#chardet.hebrewprober">chardet.hebrewprober</a>
+ &#8226;   <a href="#chardet.langbulgarianmodel">chardet.langbulgarianmodel</a>
+ &#8226;   <a href="#chardet.langgreekmodel">chardet.langgreekmodel</a>
+ &#8226;   <a href="#chardet.langhebrewmodel">chardet.langhebrewmodel</a>
+ &#8226;   <a href="#chardet.langrussianmodel">chardet.langrussianmodel</a>
+ &#8226;   <a href="#chardet.langthaimodel">chardet.langthaimodel</a>
+ &#8226;   <a href="#chardet.langturkishmodel">chardet.langturkishmodel</a>
+ &#8226;   <a href="#chardet.sbcharsetprober">chardet.sbcharsetprober</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.universaldetector">chardet.universaldetector</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.sjisprober"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/sjisprober.py" type="text/plain"><tt>chardet.sjisprober</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.chardistribution">chardet.chardistribution</a>
+ &#8226;   <a href="#chardet.codingstatemachine">chardet.codingstatemachine</a>
+ &#8226;   <a href="#chardet.enums">chardet.enums</a>
+ &#8226;   <a href="#chardet.jpcntx">chardet.jpcntx</a>
+ &#8226;   <a href="#chardet.mbcharsetprober">chardet.mbcharsetprober</a>
+ &#8226;   <a href="#chardet.mbcssm">chardet.mbcssm</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.mbcsgroupprober">chardet.mbcsgroupprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.universaldetector"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/universaldetector.py" type="text/plain"><tt>chardet.universaldetector</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.charsetgroupprober">chardet.charsetgroupprober</a>
+ &#8226;   <a href="#chardet.charsetprober">chardet.charsetprober</a>
+ &#8226;   <a href="#chardet.enums">chardet.enums</a>
+ &#8226;   <a href="#chardet.escprober">chardet.escprober</a>
+ &#8226;   <a href="#chardet.latin1prober">chardet.latin1prober</a>
+ &#8226;   <a href="#chardet.macromanprober">chardet.macromanprober</a>
+ &#8226;   <a href="#chardet.mbcsgroupprober">chardet.mbcsgroupprober</a>
+ &#8226;   <a href="#chardet.resultdict">chardet.resultdict</a>
+ &#8226;   <a href="#chardet.sbcsgroupprober">chardet.sbcsgroupprober</a>
+ &#8226;   <a href="#chardet.utf1632prober">chardet.utf1632prober</a>
+ &#8226;   <a href="#codecs">codecs</a>
+ &#8226;   <a href="#logging">logging</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet">chardet</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.utf1632prober"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/utf1632prober.py" type="text/plain"><tt>chardet.utf1632prober</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.charsetprober">chardet.charsetprober</a>
+ &#8226;   <a href="#chardet.enums">chardet.enums</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.universaldetector">chardet.universaldetector</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.utf8prober"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/utf8prober.py" type="text/plain"><tt>chardet.utf8prober</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.charsetprober">chardet.charsetprober</a>
+ &#8226;   <a href="#chardet.codingstatemachine">chardet.codingstatemachine</a>
+ &#8226;   <a href="#chardet.enums">chardet.enums</a>
+ &#8226;   <a href="#chardet.mbcssm">chardet.mbcssm</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet.mbcsgroupprober">chardet.mbcsgroupprober</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="chardet.version"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/chardet/version.py" type="text/plain"><tt>chardet.version</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#chardet">chardet</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#chardet">chardet</a>
 
   </div>
 
@@ -7815,6 +8788,7 @@ imported by:
     <a href="#PIL.PdfParser">PIL.PdfParser</a>
  &#8226;   <a href="#_pickle">_pickle</a>
  &#8226;   <a href="#bs4.dammit">bs4.dammit</a>
+ &#8226;   <a href="#chardet.universaldetector">chardet.universaldetector</a>
  &#8226;   <a href="#charset_normalizer.cd">charset_normalizer.cd</a>
  &#8226;   <a href="#charset_normalizer.constant">charset_normalizer.constant</a>
  &#8226;   <a href="#charset_normalizer.utils">charset_normalizer.utils</a>
@@ -8030,6 +9004,8 @@ imported by:
  &#8226;   <a href="#importlib_resources.readers">importlib_resources.readers</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#lxml.html._difflib">lxml.html._difflib</a>
+ &#8226;   <a href="#more_itertools.more">more_itertools.more</a>
+ &#8226;   <a href="#more_itertools.recipes">more_itertools.recipes</a>
  &#8226;   <a href="#multiprocessing.heap">multiprocessing.heap</a>
  &#8226;   <a href="#multiprocessing.pool">multiprocessing.pool</a>
  &#8226;   <a href="#multiprocessing.queues">multiprocessing.queues</a>
@@ -8051,8 +9027,6 @@ imported by:
  &#8226;   <a href="#requests.structures">requests.structures</a>
  &#8226;   <a href="#requests.utils">requests.utils</a>
  &#8226;   <a href="#selectors">selectors</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.more">setuptools._vendor.more_itertools.more</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.recipes">setuptools._vendor.more_itertools.recipes</a>
  &#8226;   <a href="#setuptools._vendor.packaging._manylinux">setuptools._vendor.packaging._manylinux</a>
  &#8226;   <a href="#setuptools.command._requirestxt">setuptools.command._requirestxt</a>
  &#8226;   <a href="#setuptools.config.setupcfg">setuptools.config.setupcfg</a>
@@ -8131,9 +9105,12 @@ imported by:
  &#8226;   <a href="#importlib_resources.readers">importlib_resources.readers</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#jaraco.collections">jaraco.collections</a>
+ &#8226;   <a href="#jaraco.context">jaraco.context</a>
+ &#8226;   <a href="#jaraco.functools">jaraco.functools</a>
  &#8226;   <a href="#logging">logging</a>
  &#8226;   <a href="#lxml.html">lxml.html</a>
  &#8226;   <a href="#lxml.html._setmixin">lxml.html._setmixin</a>
+ &#8226;   <a href="#more_itertools.more">more_itertools.more</a>
  &#8226;   <a href="#nku_grades_gui.py">nku_grades_gui.py</a>
  &#8226;   <a href="#numpy._core._ufunc_config">numpy._core._ufunc_config</a>
  &#8226;   <a href="#numpy._typing._array_like">numpy._typing._array_like</a>
@@ -8160,10 +9137,6 @@ imported by:
  &#8226;   <a href="#setuptools._distutils.fancy_getopt">setuptools._distutils.fancy_getopt</a>
  &#8226;   <a href="#setuptools._distutils.spawn">setuptools._distutils.spawn</a>
  &#8226;   <a href="#setuptools._reqs">setuptools._reqs</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.functools">setuptools._vendor.jaraco.functools</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.more">setuptools._vendor.more_itertools.more</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.recipes">setuptools._vendor.more_itertools.recipes</a>
- &#8226;   <a href="#setuptools._vendor.tomli._parser">setuptools._vendor.tomli._parser</a>
  &#8226;   <a href="#setuptools.command._requirestxt">setuptools.command._requirestxt</a>
  &#8226;   <a href="#setuptools.command.bdist_wheel">setuptools.command.bdist_wheel</a>
  &#8226;   <a href="#setuptools.command.egg_info">setuptools.command.egg_info</a>
@@ -8175,6 +9148,7 @@ imported by:
  &#8226;   <a href="#setuptools.dist">setuptools.dist</a>
  &#8226;   <a href="#setuptools.glob">setuptools.glob</a>
  &#8226;   <a href="#socks">socks</a>
+ &#8226;   <a href="#tomli._parser">tomli._parser</a>
  &#8226;   <a href="#tracemalloc">tracemalloc</a>
  &#8226;   <a href="#typing">typing</a>
  &#8226;   <a href="#typing_extensions">typing_extensions</a>
@@ -8370,7 +9344,10 @@ imported by:
  &#8226;   <a href="#importlib_resources._common">importlib_resources._common</a>
  &#8226;   <a href="#importlib_resources.future.adapters">importlib_resources.future.adapters</a>
  &#8226;   <a href="#importlib_resources.readers">importlib_resources.readers</a>
+ &#8226;   <a href="#jaraco.context">jaraco.context</a>
  &#8226;   <a href="#lxml.etree">lxml.etree</a>
+ &#8226;   <a href="#more_itertools.more">more_itertools.more</a>
+ &#8226;   <a href="#more_itertools.recipes">more_itertools.recipes</a>
  &#8226;   <a href="#numpy._core._methods">numpy._core._methods</a>
  &#8226;   <a href="#numpy._core._ufunc_config">numpy._core._ufunc_config</a>
  &#8226;   <a href="#numpy._core.arrayprint">numpy._core.arrayprint</a>
@@ -8391,7 +9368,6 @@ imported by:
  &#8226;   <a href="#setuptools._distutils.dist">setuptools._distutils.dist</a>
  &#8226;   <a href="#setuptools._distutils.version">setuptools._distutils.version</a>
  &#8226;   <a href="#setuptools._path">setuptools._path</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.context">setuptools._vendor.jaraco.context</a>
  &#8226;   <a href="#setuptools._vendor.packaging._manylinux">setuptools._vendor.packaging._manylinux</a>
  &#8226;   <a href="#setuptools._vendor.packaging._tokenizer">setuptools._vendor.packaging._tokenizer</a>
  &#8226;   <a href="#setuptools.archive_util">setuptools.archive_util</a>
@@ -8443,8 +9419,8 @@ imported by:
   <a target="code" href="///D:/30515/anaconda/envs/new/lib/copy.py" type="text/plain"><tt>copy</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#copyreg">copyreg</a>
- &#8226;   <a href="#org">org</a>
+    <a href="#'org.python'">'org.python'</a>
+ &#8226;   <a href="#copyreg">copyreg</a>
  &#8226;   <a href="#types">types</a>
  &#8226;   <a href="#weakref">weakref</a>
 
@@ -8454,6 +9430,7 @@ imported by:
     <a href="#PIL.GifImagePlugin">PIL.GifImagePlugin</a>
  &#8226;   <a href="#_sre">_sre</a>
  &#8226;   <a href="#argparse">argparse</a>
+ &#8226;   <a href="#backports.tarfile">backports.tarfile</a>
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#customtkinter.windows.widgets.ctk_combobox">customtkinter.windows.widgets.ctk_combobox</a>
  &#8226;   <a href="#customtkinter.windows.widgets.ctk_optionmenu">customtkinter.windows.widgets.ctk_optionmenu</a>
@@ -8479,7 +9456,6 @@ imported by:
  &#8226;   <a href="#pycparser.ply.lex">pycparser.ply.lex</a>
  &#8226;   <a href="#requests.cookies">requests.cookies</a>
  &#8226;   <a href="#setuptools._distutils.cygwinccompiler">setuptools._distutils.cygwinccompiler</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#weakref">weakref</a>
  &#8226;   <a href="#webbrowser">webbrowser</a>
@@ -11401,9 +12377,9 @@ imported by:
  &#8226;   <a href="#psutil">psutil</a>
  &#8226;   <a href="#requests.models">requests.models</a>
  &#8226;   <a href="#requests.sessions">requests.sessions</a>
- &#8226;   <a href="#setuptools._vendor.tomli._re">setuptools._vendor.tomli._re</a>
  &#8226;   <a href="#setuptools.warnings">setuptools.warnings</a>
  &#8226;   <a href="#soupsieve.css_match">soupsieve.css_match</a>
+ &#8226;   <a href="#tomli._re">tomli._re</a>
  &#8226;   <a href="#urllib3.connection">urllib3.connection</a>
  &#8226;   <a href="#xmlrpc.client">xmlrpc.client</a>
  &#8226;   <a href="#yaml.constructor">yaml.constructor</a>
@@ -15452,6 +16428,7 @@ imported by:
  &#8226;   <a href="#PIL.PngImagePlugin">PIL.PngImagePlugin</a>
  &#8226;   <a href="#ast">ast</a>
  &#8226;   <a href="#asyncio.constants">asyncio.constants</a>
+ &#8226;   <a href="#chardet.enums">chardet.enums</a>
  &#8226;   <a href="#cryptography.hazmat.primitives.serialization.ssh">cryptography.hazmat.primitives.serialization.ssh</a>
  &#8226;   <a href="#cryptography.utils">cryptography.utils</a>
  &#8226;   <a href="#h2.connection">h2.connection</a>
@@ -15496,6 +16473,7 @@ imported by:
  &#8226;   <a href="#gettext">gettext</a>
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#http.client">http.client</a>
+ &#8226;   <a href="#jaraco.context">jaraco.context</a>
  &#8226;   <a href="#multiprocessing.forkserver">multiprocessing.forkserver</a>
  &#8226;   <a href="#multiprocessing.queues">multiprocessing.queues</a>
  &#8226;   <a href="#multiprocessing.shared_memory">multiprocessing.shared_memory</a>
@@ -15665,11 +16643,15 @@ imported by:
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#ipaddress">ipaddress</a>
  &#8226;   <a href="#jaraco.collections">jaraco.collections</a>
+ &#8226;   <a href="#jaraco.context">jaraco.context</a>
+ &#8226;   <a href="#jaraco.functools">jaraco.functools</a>
  &#8226;   <a href="#linecache">linecache</a>
  &#8226;   <a href="#locale">locale</a>
  &#8226;   <a href="#lxml.builder">lxml.builder</a>
  &#8226;   <a href="#lxml.html">lxml.html</a>
  &#8226;   <a href="#lxml.html.diff">lxml.html.diff</a>
+ &#8226;   <a href="#more_itertools.more">more_itertools.more</a>
+ &#8226;   <a href="#more_itertools.recipes">more_itertools.recipes</a>
  &#8226;   <a href="#multiprocessing.reduction">multiprocessing.reduction</a>
  &#8226;   <a href="#multiprocessing.shared_memory">multiprocessing.shared_memory</a>
  &#8226;   <a href="#nku_grades_gui.py">nku_grades_gui.py</a>
@@ -15705,7 +16687,6 @@ imported by:
  &#8226;   <a href="#operator">operator</a>
  &#8226;   <a href="#packaging._manylinux">packaging._manylinux</a>
  &#8226;   <a href="#packaging._musllinux">packaging._musllinux</a>
- &#8226;   <a href="#packaging.utils">packaging.utils</a>
  &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#pickle">pickle</a>
  &#8226;   <a href="#pkg_resources">pkg_resources</a>
@@ -15729,15 +16710,10 @@ imported by:
  &#8226;   <a href="#setuptools._entry_points">setuptools._entry_points</a>
  &#8226;   <a href="#setuptools._reqs">setuptools._reqs</a>
  &#8226;   <a href="#setuptools._static">setuptools._static</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.context">setuptools._vendor.jaraco.context</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.functools">setuptools._vendor.jaraco.functools</a>
  &#8226;   <a href="#setuptools._vendor.jaraco.text">setuptools._vendor.jaraco.text</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.more">setuptools._vendor.more_itertools.more</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.recipes">setuptools._vendor.more_itertools.recipes</a>
  &#8226;   <a href="#setuptools._vendor.packaging._manylinux">setuptools._vendor.packaging._manylinux</a>
  &#8226;   <a href="#setuptools._vendor.packaging._musllinux">setuptools._vendor.packaging._musllinux</a>
  &#8226;   <a href="#setuptools._vendor.packaging.utils">setuptools._vendor.packaging.utils</a>
- &#8226;   <a href="#setuptools._vendor.tomli._re">setuptools._vendor.tomli._re</a>
  &#8226;   <a href="#setuptools.command.egg_info">setuptools.command.egg_info</a>
  &#8226;   <a href="#setuptools.config">setuptools.config</a>
  &#8226;   <a href="#setuptools.config._apply_pyprojecttoml">setuptools.config._apply_pyprojecttoml</a>
@@ -15753,6 +16729,7 @@ imported by:
  &#8226;   <a href="#tempfile">tempfile</a>
  &#8226;   <a href="#threading">threading</a>
  &#8226;   <a href="#threadpoolctl">threadpoolctl</a>
+ &#8226;   <a href="#tomli._re">tomli._re</a>
  &#8226;   <a href="#tracemalloc">tracemalloc</a>
  &#8226;   <a href="#types">types</a>
  &#8226;   <a href="#typing">typing</a>
@@ -15918,10 +16895,10 @@ imported by:
   <a target="code" href="" type="text/plain"><tt>grp</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#distutils.archive_util">distutils.archive_util</a>
+    <a href="#backports.tarfile">backports.tarfile</a>
+ &#8226;   <a href="#distutils.archive_util">distutils.archive_util</a>
  &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#setuptools._distutils.archive_util">setuptools._distutils.archive_util</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#subprocess">subprocess</a>
  &#8226;   <a href="#tarfile">tarfile</a>
@@ -15951,10 +16928,10 @@ imports:
   <div class="import">
 imported by:
     <a href="#PIL.FitsImagePlugin">PIL.FitsImagePlugin</a>
+ &#8226;   <a href="#backports.tarfile">backports.tarfile</a>
  &#8226;   <a href="#fileinput">fileinput</a>
  &#8226;   <a href="#lxml.etree">lxml.etree</a>
  &#8226;   <a href="#numpy.lib._datasource">numpy.lib._datasource</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#xmlrpc.client">xmlrpc.client</a>
 
@@ -16277,9 +17254,10 @@ imported by:
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#difflib">difflib</a>
  &#8226;   <a href="#lxml.html._difflib">lxml.html._difflib</a>
+ &#8226;   <a href="#more_itertools.more">more_itertools.more</a>
+ &#8226;   <a href="#more_itertools.recipes">more_itertools.recipes</a>
  &#8226;   <a href="#nku_grades_gui.py">nku_grades_gui.py</a>
  &#8226;   <a href="#queue">queue</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.more">setuptools._vendor.more_itertools.more</a>
 
   </div>
 
@@ -17762,6 +18740,7 @@ imported by:
  &#8226;   <a href="#doctest">doctest</a>
  &#8226;   <a href="#importlib_metadata">importlib_metadata</a>
  &#8226;   <a href="#importlib_resources._common">importlib_resources._common</a>
+ &#8226;   <a href="#jaraco.functools">jaraco.functools</a>
  &#8226;   <a href="#lxml.html.diff">lxml.html.diff</a>
  &#8226;   <a href="#numpy.lib._utils_impl">numpy.lib._utils_impl</a>
  &#8226;   <a href="#numpy.ma.core">numpy.ma.core</a>
@@ -17774,7 +18753,6 @@ imported by:
  &#8226;   <a href="#pycparser.ply.yacc">pycparser.ply.yacc</a>
  &#8226;   <a href="#pydoc">pydoc</a>
  &#8226;   <a href="#pyi_rth_inspect.py">pyi_rth_inspect.py</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.functools">setuptools._vendor.jaraco.functools</a>
  &#8226;   <a href="#setuptools.config._apply_pyprojecttoml">setuptools.config._apply_pyprojecttoml</a>
  &#8226;   <a href="#setuptools.config._validate_pyproject.extra_validations">setuptools.config._validate_pyproject.extra_validations</a>
  &#8226;   <a href="#setuptools.discovery">setuptools.discovery</a>
@@ -17824,6 +18802,7 @@ imported by:
  &#8226;   <a href="#_compression">_compression</a>
  &#8226;   <a href="#asyncio.proactor_events">asyncio.proactor_events</a>
  &#8226;   <a href="#asyncio.unix_events">asyncio.unix_events</a>
+ &#8226;   <a href="#backports.tarfile">backports.tarfile</a>
  &#8226;   <a href="#bs4.builder._lxml">bs4.builder._lxml</a>
  &#8226;   <a href="#bz2">bz2</a>
  &#8226;   <a href="#cffi.ffiplatform">cffi.ffiplatform</a>
@@ -17873,7 +18852,6 @@ imported by:
  &#8226;   <a href="#requests.models">requests.models</a>
  &#8226;   <a href="#requests.utils">requests.utils</a>
  &#8226;   <a href="#runpy">runpy</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
  &#8226;   <a href="#setuptools.command._requirestxt">setuptools.command._requirestxt</a>
  &#8226;   <a href="#setuptools.config._validate_pyproject.error_reporting">setuptools.config._validate_pyproject.error_reporting</a>
  &#8226;   <a href="#setuptools.dist">setuptools.dist</a>
@@ -17968,7 +18946,10 @@ imported by:
  &#8226;   <a href="#importlib_resources.readers">importlib_resources.readers</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#jaraco.collections">jaraco.collections</a>
+ &#8226;   <a href="#jaraco.functools">jaraco.functools</a>
  &#8226;   <a href="#lxml.html.diff">lxml.html.diff</a>
+ &#8226;   <a href="#more_itertools.more">more_itertools.more</a>
+ &#8226;   <a href="#more_itertools.recipes">more_itertools.recipes</a>
  &#8226;   <a href="#multiprocessing.connection">multiprocessing.connection</a>
  &#8226;   <a href="#multiprocessing.pool">multiprocessing.pool</a>
  &#8226;   <a href="#multiprocessing.process">multiprocessing.process</a>
@@ -17995,10 +18976,7 @@ imported by:
  &#8226;   <a href="#setuptools._distutils.dir_util">setuptools._distutils.dir_util</a>
  &#8226;   <a href="#setuptools._distutils.unixccompiler">setuptools._distutils.unixccompiler</a>
  &#8226;   <a href="#setuptools._entry_points">setuptools._entry_points</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.functools">setuptools._vendor.jaraco.functools</a>
  &#8226;   <a href="#setuptools._vendor.jaraco.text">setuptools._vendor.jaraco.text</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.more">setuptools._vendor.more_itertools.more</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.recipes">setuptools._vendor.more_itertools.recipes</a>
  &#8226;   <a href="#setuptools._vendor.packaging.specifiers">setuptools._vendor.packaging.specifiers</a>
  &#8226;   <a href="#setuptools._vendor.packaging.version">setuptools._vendor.packaging.version</a>
  &#8226;   <a href="#setuptools.command._requirestxt">setuptools.command._requirestxt</a>
@@ -18070,11 +19048,27 @@ imported by:
 
 <div class="node">
   <a name="jaraco.context"></a>
-  <a target="code" href="" type="text/plain"><tt>jaraco.context</tt></a>
-<span class="moduletype">AliasNode</span>  <div class="import">
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/jaraco/context/__init__.py" type="text/plain"><tt>jaraco.context</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
 imports:
-    <a href="#jaraco">jaraco</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.context">setuptools._vendor.jaraco.context</a>
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#backports">backports</a>
+ &#8226;   <a href="#backports.tarfile">backports.tarfile</a>
+ &#8226;   <a href="#collections.abc">collections.abc</a>
+ &#8226;   <a href="#contextlib">contextlib</a>
+ &#8226;   <a href="#errno">errno</a>
+ &#8226;   <a href="#functools">functools</a>
+ &#8226;   <a href="#jaraco">jaraco</a>
+ &#8226;   <a href="#operator">operator</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#platform">platform</a>
+ &#8226;   <a href="#shutil">shutil</a>
+ &#8226;   <a href="#stat">stat</a>
+ &#8226;   <a href="#subprocess">subprocess</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#tarfile">tarfile</a>
+ &#8226;   <a href="#tempfile">tempfile</a>
+ &#8226;   <a href="#urllib.request">urllib.request</a>
 
   </div>
   <div class="import">
@@ -18087,11 +19081,21 @@ imported by:
 
 <div class="node">
   <a name="jaraco.functools"></a>
-  <a target="code" href="" type="text/plain"><tt>jaraco.functools</tt></a>
-<span class="moduletype">AliasNode</span>  <div class="import">
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/jaraco/functools/__init__.py" type="text/plain"><tt>jaraco.functools</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
 imports:
-    <a href="#jaraco">jaraco</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.functools">setuptools._vendor.jaraco.functools</a>
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#collections.abc">collections.abc</a>
+ &#8226;   <a href="#functools">functools</a>
+ &#8226;   <a href="#inspect">inspect</a>
+ &#8226;   <a href="#itertools">itertools</a>
+ &#8226;   <a href="#jaraco">jaraco</a>
+ &#8226;   <a href="#more_itertools">more_itertools</a>
+ &#8226;   <a href="#operator">operator</a>
+ &#8226;   <a href="#time">time</a>
+ &#8226;   <a href="#types">types</a>
+ &#8226;   <a href="#typing">typing</a>
+ &#8226;   <a href="#warnings">warnings</a>
 
   </div>
   <div class="import">
@@ -18358,6 +19362,9 @@ imported by:
  &#8226;   <a href="#asyncio.futures">asyncio.futures</a>
  &#8226;   <a href="#asyncio.log">asyncio.log</a>
  &#8226;   <a href="#bs4.dammit">bs4.dammit</a>
+ &#8226;   <a href="#chardet.charsetprober">chardet.charsetprober</a>
+ &#8226;   <a href="#chardet.codingstatemachine">chardet.codingstatemachine</a>
+ &#8226;   <a href="#chardet.universaldetector">chardet.universaldetector</a>
  &#8226;   <a href="#charset_normalizer">charset_normalizer</a>
  &#8226;   <a href="#charset_normalizer.api">charset_normalizer.api</a>
  &#8226;   <a href="#charset_normalizer.md">charset_normalizer.md</a>
@@ -19111,8 +20118,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#numpy.lib._datasource">numpy.lib._datasource</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
+    <a href="#backports.tarfile">backports.tarfile</a>
+ &#8226;   <a href="#numpy.lib._datasource">numpy.lib._datasource</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#zipfile">zipfile</a>
@@ -19156,6 +20163,8 @@ imported by:
  &#8226;   <a href="#customtkinter.windows.widgets.ctk_progressbar">customtkinter.windows.widgets.ctk_progressbar</a>
  &#8226;   <a href="#datetime">datetime</a>
  &#8226;   <a href="#fractions">fractions</a>
+ &#8226;   <a href="#more_itertools.more">more_itertools.more</a>
+ &#8226;   <a href="#more_itertools.recipes">more_itertools.recipes</a>
  &#8226;   <a href="#numpy._core._machar">numpy._core._machar</a>
  &#8226;   <a href="#numpy._core.numeric">numpy._core.numeric</a>
  &#8226;   <a href="#numpy.f2py.symbolic">numpy.f2py.symbolic</a>
@@ -19163,8 +20172,6 @@ imported by:
  &#8226;   <a href="#numpy.lib._index_tricks_impl">numpy.lib._index_tricks_impl</a>
  &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#selectors">selectors</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.more">setuptools._vendor.more_itertools.more</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.recipes">setuptools._vendor.more_itertools.recipes</a>
  &#8226;   <a href="#statistics">statistics</a>
 
   </div>
@@ -19210,23 +20217,83 @@ imported by:
 
 <div class="node">
   <a name="more_itertools"></a>
-  <a target="code" href="" type="text/plain"><tt>more_itertools</tt></a>
-<span class="moduletype">AliasNode</span>  <div class="import">
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/more_itertools/__init__.py" type="text/plain"><tt>more_itertools</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
 imports:
-    <a href="#setuptools._vendor.more_itertools">setuptools._vendor.more_itertools</a>
+    <a href="#more_itertools.more">more_itertools.more</a>
+ &#8226;   <a href="#more_itertools.recipes">more_itertools.recipes</a>
 
   </div>
   <div class="import">
 imported by:
-    <a href="#setuptools._distutils.ccompiler">setuptools._distutils.ccompiler</a>
+    <a href="#jaraco.functools">jaraco.functools</a>
+ &#8226;   <a href="#more_itertools.more">more_itertools.more</a>
+ &#8226;   <a href="#more_itertools.recipes">more_itertools.recipes</a>
+ &#8226;   <a href="#setuptools._distutils.ccompiler">setuptools._distutils.ccompiler</a>
  &#8226;   <a href="#setuptools._entry_points">setuptools._entry_points</a>
  &#8226;   <a href="#setuptools._itertools">setuptools._itertools</a>
  &#8226;   <a href="#setuptools._path">setuptools._path</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.functools">setuptools._vendor.jaraco.functools</a>
  &#8226;   <a href="#setuptools.config.expand">setuptools.config.expand</a>
  &#8226;   <a href="#setuptools.config.pyprojecttoml">setuptools.config.pyprojecttoml</a>
  &#8226;   <a href="#setuptools.dist">setuptools.dist</a>
  &#8226;   <a href="#setuptools.msvc">setuptools.msvc</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="more_itertools.more"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/more_itertools/more.py" type="text/plain"><tt>more_itertools.more</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#collections">collections</a>
+ &#8226;   <a href="#collections.abc">collections.abc</a>
+ &#8226;   <a href="#contextlib">contextlib</a>
+ &#8226;   <a href="#functools">functools</a>
+ &#8226;   <a href="#heapq">heapq</a>
+ &#8226;   <a href="#itertools">itertools</a>
+ &#8226;   <a href="#math">math</a>
+ &#8226;   <a href="#more_itertools">more_itertools</a>
+ &#8226;   <a href="#more_itertools.recipes">more_itertools.recipes</a>
+ &#8226;   <a href="#operator">operator</a>
+ &#8226;   <a href="#queue">queue</a>
+ &#8226;   <a href="#random">random</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#time">time</a>
+ &#8226;   <a href="#warnings">warnings</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#more_itertools">more_itertools</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="more_itertools.recipes"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/more_itertools/recipes.py" type="text/plain"><tt>more_itertools.recipes</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#bisect">bisect</a>
+ &#8226;   <a href="#collections">collections</a>
+ &#8226;   <a href="#contextlib">contextlib</a>
+ &#8226;   <a href="#functools">functools</a>
+ &#8226;   <a href="#heapq">heapq</a>
+ &#8226;   <a href="#itertools">itertools</a>
+ &#8226;   <a href="#math">math</a>
+ &#8226;   <a href="#more_itertools">more_itertools</a>
+ &#8226;   <a href="#operator">operator</a>
+ &#8226;   <a href="#random">random</a>
+ &#8226;   <a href="#sys">sys</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#more_itertools">more_itertools</a>
+ &#8226;   <a href="#more_itertools.more">more_itertools.more</a>
 
   </div>
 
@@ -26713,7 +27780,11 @@ imported by:
  &#8226;   <a href="#importlib_resources.readers">importlib_resources.readers</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#jaraco.collections">jaraco.collections</a>
+ &#8226;   <a href="#jaraco.context">jaraco.context</a>
+ &#8226;   <a href="#jaraco.functools">jaraco.functools</a>
  &#8226;   <a href="#lxml.html.diff">lxml.html.diff</a>
+ &#8226;   <a href="#more_itertools.more">more_itertools.more</a>
+ &#8226;   <a href="#more_itertools.recipes">more_itertools.recipes</a>
  &#8226;   <a href="#nku_grades_gui.py">nku_grades_gui.py</a>
  &#8226;   <a href="#numpy._core.arrayprint">numpy._core.arrayprint</a>
  &#8226;   <a href="#numpy._core.einsumfunc">numpy._core.einsumfunc</a>
@@ -26734,10 +27805,6 @@ imported by:
  &#8226;   <a href="#pkg_resources">pkg_resources</a>
  &#8226;   <a href="#setuptools._distutils.versionpredicate">setuptools._distutils.versionpredicate</a>
  &#8226;   <a href="#setuptools._entry_points">setuptools._entry_points</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.context">setuptools._vendor.jaraco.context</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.functools">setuptools._vendor.jaraco.functools</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.more">setuptools._vendor.more_itertools.more</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.recipes">setuptools._vendor.more_itertools.recipes</a>
  &#8226;   <a href="#setuptools._vendor.packaging.markers">setuptools._vendor.packaging.markers</a>
  &#8226;   <a href="#statistics">statistics</a>
  &#8226;   <a href="#typing">typing</a>
@@ -26772,7 +27839,7 @@ imported by:
   <a target="code" href="" type="text/plain"><tt>org</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#copy">copy</a>
+    <a href="#pickle">pickle</a>
 
   </div>
 
@@ -26834,6 +27901,7 @@ imported by:
  &#8226;   <a href="#asyncio.proactor_events">asyncio.proactor_events</a>
  &#8226;   <a href="#asyncio.unix_events">asyncio.unix_events</a>
  &#8226;   <a href="#asyncio.windows_utils">asyncio.windows_utils</a>
+ &#8226;   <a href="#backports.tarfile">backports.tarfile</a>
  &#8226;   <a href="#bdb">bdb</a>
  &#8226;   <a href="#bz2">bz2</a>
  &#8226;   <a href="#certifi.core">certifi.core</a>
@@ -26906,6 +27974,7 @@ imported by:
  &#8226;   <a href="#importlib_resources._common">importlib_resources._common</a>
  &#8226;   <a href="#importlib_resources.abc">importlib_resources.abc</a>
  &#8226;   <a href="#inspect">inspect</a>
+ &#8226;   <a href="#jaraco.context">jaraco.context</a>
  &#8226;   <a href="#linecache">linecache</a>
  &#8226;   <a href="#locale">locale</a>
  &#8226;   <a href="#logging">logging</a>
@@ -27031,8 +28100,6 @@ imported by:
  &#8226;   <a href="#setuptools._imp">setuptools._imp</a>
  &#8226;   <a href="#setuptools._path">setuptools._path</a>
  &#8226;   <a href="#setuptools._shutil">setuptools._shutil</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.context">setuptools._vendor.jaraco.context</a>
  &#8226;   <a href="#setuptools._vendor.packaging._elffile">setuptools._vendor.packaging._elffile</a>
  &#8226;   <a href="#setuptools._vendor.packaging._manylinux">setuptools._vendor.packaging._manylinux</a>
  &#8226;   <a href="#setuptools._vendor.packaging.markers">setuptools._vendor.packaging.markers</a>
@@ -27158,7 +28225,6 @@ imported by:
  &#8226;   <a href="#packaging._parser">packaging._parser</a>
  &#8226;   <a href="#packaging._structures">packaging._structures</a>
  &#8226;   <a href="#packaging._tokenizer">packaging._tokenizer</a>
- &#8226;   <a href="#packaging.licenses">packaging.licenses</a>
  &#8226;   <a href="#packaging.markers">packaging.markers</a>
  &#8226;   <a href="#packaging.metadata">packaging.metadata</a>
  &#8226;   <a href="#packaging.requirements">packaging.requirements</a>
@@ -27181,8 +28247,7 @@ imported by:
   <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/packaging/_elffile.py" type="text/plain"><tt>packaging._elffile</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#enum">enum</a>
+    <a href="#enum">enum</a>
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#packaging">packaging</a>
  &#8226;   <a href="#struct">struct</a>
@@ -27204,8 +28269,7 @@ imported by:
   <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/packaging/_manylinux.py" type="text/plain"><tt>packaging._manylinux</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#_manylinux">_manylinux</a>
+    <a href="#_manylinux">_manylinux</a>
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#contextlib">contextlib</a>
  &#8226;   <a href="#ctypes">ctypes</a>
@@ -27234,8 +28298,7 @@ imported by:
   <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/packaging/_musllinux.py" type="text/plain"><tt>packaging._musllinux</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#functools">functools</a>
+    <a href="#functools">functools</a>
  &#8226;   <a href="#packaging">packaging</a>
  &#8226;   <a href="#packaging._elffile">packaging._elffile</a>
  &#8226;   <a href="#re">re</a>
@@ -27260,8 +28323,7 @@ imported by:
   <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/packaging/_parser.py" type="text/plain"><tt>packaging._parser</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#ast">ast</a>
+    <a href="#ast">ast</a>
  &#8226;   <a href="#packaging">packaging</a>
  &#8226;   <a href="#packaging._tokenizer">packaging._tokenizer</a>
  &#8226;   <a href="#typing">typing</a>
@@ -27299,8 +28361,7 @@ imported by:
   <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/packaging/_tokenizer.py" type="text/plain"><tt>packaging._tokenizer</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#contextlib">contextlib</a>
+    <a href="#contextlib">contextlib</a>
  &#8226;   <a href="#dataclasses">dataclasses</a>
  &#8226;   <a href="#packaging">packaging</a>
  &#8226;   <a href="#packaging.specifiers">packaging.specifiers</a>
@@ -27320,53 +28381,11 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="packaging.licenses"></a>
-  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/packaging/licenses/__init__.py" type="text/plain"><tt>packaging.licenses</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#packaging">packaging</a>
- &#8226;   <a href="#packaging.licenses._spdx">packaging.licenses._spdx</a>
- &#8226;   <a href="#re">re</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#packaging.licenses._spdx">packaging.licenses._spdx</a>
- &#8226;   <a href="#packaging.metadata">packaging.metadata</a>
- &#8226;   <a href="#pkg_resources">pkg_resources</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="packaging.licenses._spdx"></a>
-  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/packaging/licenses/_spdx.py" type="text/plain"><tt>packaging.licenses._spdx</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#packaging.licenses">packaging.licenses</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#packaging.licenses">packaging.licenses</a>
- &#8226;   <a href="#pkg_resources">pkg_resources</a>
-
-  </div>
-
-</div>
-
-<div class="node">
   <a name="packaging.markers"></a>
   <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/packaging/markers.py" type="text/plain"><tt>packaging.markers</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#operator">operator</a>
+    <a href="#operator">operator</a>
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#packaging">packaging</a>
  &#8226;   <a href="#packaging._parser">packaging._parser</a>
@@ -27395,21 +28414,19 @@ imported by:
   <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/packaging/metadata.py" type="text/plain"><tt>packaging.metadata</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#email.feedparser">email.feedparser</a>
+    <a href="#email.feedparser">email.feedparser</a>
  &#8226;   <a href="#email.header">email.header</a>
  &#8226;   <a href="#email.message">email.message</a>
  &#8226;   <a href="#email.parser">email.parser</a>
  &#8226;   <a href="#email.policy">email.policy</a>
  &#8226;   <a href="#packaging">packaging</a>
- &#8226;   <a href="#packaging.licenses">packaging.licenses</a>
  &#8226;   <a href="#packaging.requirements">packaging.requirements</a>
  &#8226;   <a href="#packaging.specifiers">packaging.specifiers</a>
  &#8226;   <a href="#packaging.utils">packaging.utils</a>
  &#8226;   <a href="#packaging.version">packaging.version</a>
- &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#typing">typing</a>
+ &#8226;   <a href="#typing_extensions">typing_extensions</a>
 
   </div>
   <div class="import">
@@ -27425,8 +28442,7 @@ imported by:
   <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/packaging/requirements.py" type="text/plain"><tt>packaging.requirements</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#packaging">packaging</a>
+    <a href="#packaging">packaging</a>
  &#8226;   <a href="#packaging._parser">packaging._parser</a>
  &#8226;   <a href="#packaging._tokenizer">packaging._tokenizer</a>
  &#8226;   <a href="#packaging.markers">packaging.markers</a>
@@ -27455,8 +28471,7 @@ imported by:
   <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/packaging/specifiers.py" type="text/plain"><tt>packaging.specifiers</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#abc">abc</a>
+    <a href="#abc">abc</a>
  &#8226;   <a href="#itertools">itertools</a>
  &#8226;   <a href="#packaging">packaging</a>
  &#8226;   <a href="#packaging.utils">packaging.utils</a>
@@ -27484,14 +28499,12 @@ imported by:
   <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/packaging/tags.py" type="text/plain"><tt>packaging.tags</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#importlib.machinery">importlib.machinery</a>
+    <a href="#importlib.machinery">importlib.machinery</a>
  &#8226;   <a href="#logging">logging</a>
  &#8226;   <a href="#packaging">packaging</a>
  &#8226;   <a href="#packaging._manylinux">packaging._manylinux</a>
  &#8226;   <a href="#packaging._musllinux">packaging._musllinux</a>
  &#8226;   <a href="#platform">platform</a>
- &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#struct">struct</a>
  &#8226;   <a href="#subprocess">subprocess</a>
  &#8226;   <a href="#sys">sys</a>
@@ -27515,9 +28528,7 @@ imported by:
   <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/packaging/utils.py" type="text/plain"><tt>packaging.utils</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#functools">functools</a>
- &#8226;   <a href="#packaging">packaging</a>
+    <a href="#packaging">packaging</a>
  &#8226;   <a href="#packaging.tags">packaging.tags</a>
  &#8226;   <a href="#packaging.version">packaging.version</a>
  &#8226;   <a href="#re">re</a>
@@ -27544,8 +28555,7 @@ imported by:
   <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/packaging/version.py" type="text/plain"><tt>packaging.version</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#itertools">itertools</a>
+    <a href="#itertools">itertools</a>
  &#8226;   <a href="#packaging">packaging</a>
  &#8226;   <a href="#packaging._structures">packaging._structures</a>
  &#8226;   <a href="#re">re</a>
@@ -27616,7 +28626,6 @@ imported by:
  &#8226;   <a href="#numpy.f2py.f2py2e">numpy.f2py.f2py2e</a>
  &#8226;   <a href="#numpy.f2py.rules">numpy.f2py.rules</a>
  &#8226;   <a href="#numpy.testing._private.extbuild">numpy.testing._private.extbuild</a>
- &#8226;   <a href="#packaging.metadata">packaging.metadata</a>
  &#8226;   <a href="#platformdirs">platformdirs</a>
  &#8226;   <a href="#platformdirs.api">platformdirs.api</a>
  &#8226;   <a href="#platformdirs.macos">platformdirs.macos</a>
@@ -27692,14 +28701,14 @@ imported by:
   <a target="code" href="///D:/30515/anaconda/envs/new/lib/pickle.py" type="text/plain"><tt>pickle</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#'org.python'">'org.python'</a>
- &#8226;   <a href="#_compat_pickle">_compat_pickle</a>
+    <a href="#_compat_pickle">_compat_pickle</a>
  &#8226;   <a href="#_pickle">_pickle</a>
  &#8226;   <a href="#codecs">codecs</a>
  &#8226;   <a href="#copyreg">copyreg</a>
  &#8226;   <a href="#functools">functools</a>
  &#8226;   <a href="#io">io</a>
  &#8226;   <a href="#itertools">itertools</a>
+ &#8226;   <a href="#org">org</a>
  &#8226;   <a href="#pprint">pprint</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#struct">struct</a>
@@ -27753,8 +28762,6 @@ imports:
  &#8226;   <a href="#packaging._parser">packaging._parser</a>
  &#8226;   <a href="#packaging._structures">packaging._structures</a>
  &#8226;   <a href="#packaging._tokenizer">packaging._tokenizer</a>
- &#8226;   <a href="#packaging.licenses">packaging.licenses</a>
- &#8226;   <a href="#packaging.licenses._spdx">packaging.licenses._spdx</a>
  &#8226;   <a href="#packaging.markers">packaging.markers</a>
  &#8226;   <a href="#packaging.metadata">packaging.metadata</a>
  &#8226;   <a href="#packaging.requirements">packaging.requirements</a>
@@ -27858,6 +28865,7 @@ imported by:
  &#8226;   <a href="#customtkinter.windows.ctk_toplevel">customtkinter.windows.ctk_toplevel</a>
  &#8226;   <a href="#darkdetect">darkdetect</a>
  &#8226;   <a href="#importlib_metadata._compat">importlib_metadata._compat</a>
+ &#8226;   <a href="#jaraco.context">jaraco.context</a>
  &#8226;   <a href="#numpy">numpy</a>
  &#8226;   <a href="#numpy.f2py.crackfortran">numpy.f2py.crackfortran</a>
  &#8226;   <a href="#numpy.lib._utils_impl">numpy.lib._utils_impl</a>
@@ -28273,7 +29281,8 @@ imported by:
   <a target="code" href="" type="text/plain"><tt>pwd</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#distutils.archive_util">distutils.archive_util</a>
+    <a href="#backports.tarfile">backports.tarfile</a>
+ &#8226;   <a href="#distutils.archive_util">distutils.archive_util</a>
  &#8226;   <a href="#distutils.util">distutils.util</a>
  &#8226;   <a href="#getpass">getpass</a>
  &#8226;   <a href="#http.server">http.server</a>
@@ -28283,7 +29292,6 @@ imported by:
  &#8226;   <a href="#psutil">psutil</a>
  &#8226;   <a href="#setuptools._distutils.archive_util">setuptools._distutils.archive_util</a>
  &#8226;   <a href="#setuptools._distutils.util">setuptools._distutils.util</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#subprocess">subprocess</a>
  &#8226;   <a href="#tarfile">tarfile</a>
@@ -28688,12 +29696,12 @@ imports:
 imported by:
     <a href="#concurrent.futures.process">concurrent.futures.process</a>
  &#8226;   <a href="#concurrent.futures.thread">concurrent.futures.thread</a>
+ &#8226;   <a href="#more_itertools.more">more_itertools.more</a>
  &#8226;   <a href="#multiprocessing.dummy">multiprocessing.dummy</a>
  &#8226;   <a href="#multiprocessing.dummy.connection">multiprocessing.dummy.connection</a>
  &#8226;   <a href="#multiprocessing.managers">multiprocessing.managers</a>
  &#8226;   <a href="#multiprocessing.pool">multiprocessing.pool</a>
  &#8226;   <a href="#multiprocessing.queues">multiprocessing.queues</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.more">setuptools._vendor.more_itertools.more</a>
  &#8226;   <a href="#urllib3.connectionpool">urllib3.connectionpool</a>
 
   </div>
@@ -28746,9 +29754,9 @@ imported by:
  &#8226;   <a href="#email.generator">email.generator</a>
  &#8226;   <a href="#email.utils">email.utils</a>
  &#8226;   <a href="#jaraco.collections">jaraco.collections</a>
+ &#8226;   <a href="#more_itertools.more">more_itertools.more</a>
+ &#8226;   <a href="#more_itertools.recipes">more_itertools.recipes</a>
  &#8226;   <a href="#secrets">secrets</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.more">setuptools._vendor.more_itertools.more</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.recipes">setuptools._vendor.more_itertools.recipes</a>
  &#8226;   <a href="#statistics">statistics</a>
  &#8226;   <a href="#tempfile">tempfile</a>
  &#8226;   <a href="#urllib3.util.retry">urllib3.util.retry</a>
@@ -28791,6 +29799,7 @@ imported by:
  &#8226;   <a href="#_sre">_sre</a>
  &#8226;   <a href="#_strptime">_strptime</a>
  &#8226;   <a href="#argparse">argparse</a>
+ &#8226;   <a href="#backports.tarfile">backports.tarfile</a>
  &#8226;   <a href="#base64">base64</a>
  &#8226;   <a href="#bs4.builder">bs4.builder</a>
  &#8226;   <a href="#bs4.dammit">bs4.dammit</a>
@@ -28799,6 +29808,8 @@ imported by:
  &#8226;   <a href="#cffi.api">cffi.api</a>
  &#8226;   <a href="#cffi.cparser">cffi.cparser</a>
  &#8226;   <a href="#cgi">cgi</a>
+ &#8226;   <a href="#chardet.charsetprober">chardet.charsetprober</a>
+ &#8226;   <a href="#chardet.universaldetector">chardet.universaldetector</a>
  &#8226;   <a href="#charset_normalizer.constant">charset_normalizer.constant</a>
  &#8226;   <a href="#charset_normalizer.models">charset_normalizer.models</a>
  &#8226;   <a href="#charset_normalizer.utils">charset_normalizer.utils</a>
@@ -28888,9 +29899,7 @@ imported by:
  &#8226;   <a href="#packaging._manylinux">packaging._manylinux</a>
  &#8226;   <a href="#packaging._musllinux">packaging._musllinux</a>
  &#8226;   <a href="#packaging._tokenizer">packaging._tokenizer</a>
- &#8226;   <a href="#packaging.licenses">packaging.licenses</a>
  &#8226;   <a href="#packaging.specifiers">packaging.specifiers</a>
- &#8226;   <a href="#packaging.tags">packaging.tags</a>
  &#8226;   <a href="#packaging.utils">packaging.utils</a>
  &#8226;   <a href="#packaging.version">packaging.version</a>
  &#8226;   <a href="#pathlib">pathlib</a>
@@ -28927,7 +29936,6 @@ imported by:
  &#8226;   <a href="#setuptools._distutils.version">setuptools._distutils.version</a>
  &#8226;   <a href="#setuptools._distutils.versionpredicate">setuptools._distutils.versionpredicate</a>
  &#8226;   <a href="#setuptools._normalization">setuptools._normalization</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
  &#8226;   <a href="#setuptools._vendor.jaraco.text">setuptools._vendor.jaraco.text</a>
  &#8226;   <a href="#setuptools._vendor.packaging._manylinux">setuptools._vendor.packaging._manylinux</a>
  &#8226;   <a href="#setuptools._vendor.packaging._musllinux">setuptools._vendor.packaging._musllinux</a>
@@ -28936,7 +29944,6 @@ imported by:
  &#8226;   <a href="#setuptools._vendor.packaging.tags">setuptools._vendor.packaging.tags</a>
  &#8226;   <a href="#setuptools._vendor.packaging.utils">setuptools._vendor.packaging.utils</a>
  &#8226;   <a href="#setuptools._vendor.packaging.version">setuptools._vendor.packaging.version</a>
- &#8226;   <a href="#setuptools._vendor.tomli._re">setuptools._vendor.tomli._re</a>
  &#8226;   <a href="#setuptools.command.bdist_egg">setuptools.command.bdist_egg</a>
  &#8226;   <a href="#setuptools.command.bdist_wheel">setuptools.command.bdist_wheel</a>
  &#8226;   <a href="#setuptools.command.egg_info">setuptools.command.egg_info</a>
@@ -28962,6 +29969,7 @@ imported by:
  &#8226;   <a href="#threadpoolctl">threadpoolctl</a>
  &#8226;   <a href="#tkinter">tkinter</a>
  &#8226;   <a href="#tokenize">tokenize</a>
+ &#8226;   <a href="#tomli._re">tomli._re</a>
  &#8226;   <a href="#typing">typing</a>
  &#8226;   <a href="#unittest.case">unittest.case</a>
  &#8226;   <a href="#unittest.loader">unittest.loader</a>
@@ -31387,96 +32395,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#setuptools._vendor.backports">setuptools._vendor.backports</a>
- &#8226;   <a href="#setuptools._vendor.jaraco">setuptools._vendor.jaraco</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools">setuptools._vendor.more_itertools</a>
+    <a href="#setuptools._vendor.jaraco">setuptools._vendor.jaraco</a>
  &#8226;   <a href="#setuptools._vendor.packaging">setuptools._vendor.packaging</a>
- &#8226;   <a href="#setuptools._vendor.tomli">setuptools._vendor.tomli</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="setuptools._vendor.backports"></a>
-  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/setuptools/_vendor/backports/__init__.py" type="text/plain"><tt>setuptools._vendor.backports</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#setuptools._vendor">setuptools._vendor</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="setuptools._vendor.backports.tarfile"></a>
-  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/setuptools/_vendor/backports/tarfile/__init__.py" type="text/plain"><tt>setuptools._vendor.backports.tarfile</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#argparse">argparse</a>
- &#8226;   <a href="#builtins">builtins</a>
- &#8226;   <a href="#bz2">bz2</a>
- &#8226;   <a href="#copy">copy</a>
- &#8226;   <a href="#grp">grp</a>
- &#8226;   <a href="#gzip">gzip</a>
- &#8226;   <a href="#io">io</a>
- &#8226;   <a href="#lzma">lzma</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#pwd">pwd</a>
- &#8226;   <a href="#re">re</a>
- &#8226;   <a href="#setuptools._vendor.backports">setuptools._vendor.backports</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile.compat.py38">setuptools._vendor.backports.tarfile.compat.py38</a>
- &#8226;   <a href="#shutil">shutil</a>
- &#8226;   <a href="#stat">stat</a>
- &#8226;   <a href="#struct">struct</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#time">time</a>
- &#8226;   <a href="#warnings">warnings</a>
- &#8226;   <a href="#zlib">zlib</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#backports.tarfile">backports.tarfile</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile.compat">setuptools._vendor.backports.tarfile.compat</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="setuptools._vendor.backports.tarfile.compat"></a>
-  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/setuptools/_vendor/backports/tarfile/compat/__init__.py" type="text/plain"><tt>setuptools._vendor.backports.tarfile.compat</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#setuptools._vendor.backports.tarfile.compat.py38">setuptools._vendor.backports.tarfile.compat.py38</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="setuptools._vendor.backports.tarfile.compat.py38"></a>
-  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/setuptools/_vendor/backports/tarfile/compat/py38.py" type="text/plain"><tt>setuptools._vendor.backports.tarfile.compat.py38</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#setuptools._vendor.backports.tarfile.compat">setuptools._vendor.backports.tarfile.compat</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
 
   </div>
 
@@ -31492,65 +32412,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#setuptools._vendor.jaraco.context">setuptools._vendor.jaraco.context</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.functools">setuptools._vendor.jaraco.functools</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.text">setuptools._vendor.jaraco.text</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="setuptools._vendor.jaraco.context"></a>
-  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/setuptools/_vendor/jaraco/context.py" type="text/plain"><tt>setuptools._vendor.jaraco.context</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#backports">backports</a>
- &#8226;   <a href="#backports.tarfile">backports.tarfile</a>
- &#8226;   <a href="#contextlib">contextlib</a>
- &#8226;   <a href="#functools">functools</a>
- &#8226;   <a href="#operator">operator</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#setuptools._vendor.jaraco">setuptools._vendor.jaraco</a>
- &#8226;   <a href="#shutil">shutil</a>
- &#8226;   <a href="#subprocess">subprocess</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#tarfile">tarfile</a>
- &#8226;   <a href="#tempfile">tempfile</a>
- &#8226;   <a href="#typing">typing</a>
- &#8226;   <a href="#urllib.request">urllib.request</a>
- &#8226;   <a href="#warnings">warnings</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#jaraco.context">jaraco.context</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="setuptools._vendor.jaraco.functools"></a>
-  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/setuptools/_vendor/jaraco/functools/__init__.py" type="text/plain"><tt>setuptools._vendor.jaraco.functools</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#collections.abc">collections.abc</a>
- &#8226;   <a href="#functools">functools</a>
- &#8226;   <a href="#inspect">inspect</a>
- &#8226;   <a href="#itertools">itertools</a>
- &#8226;   <a href="#more_itertools">more_itertools</a>
- &#8226;   <a href="#operator">operator</a>
- &#8226;   <a href="#setuptools._vendor.jaraco">setuptools._vendor.jaraco</a>
- &#8226;   <a href="#time">time</a>
- &#8226;   <a href="#types">types</a>
- &#8226;   <a href="#warnings">warnings</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#jaraco.functools">jaraco.functools</a>
+    <a href="#setuptools._vendor.jaraco.text">setuptools._vendor.jaraco.text</a>
 
   </div>
 
@@ -31575,80 +32437,6 @@ imports:
   <div class="import">
 imported by:
     <a href="#jaraco.text">jaraco.text</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="setuptools._vendor.more_itertools"></a>
-  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/setuptools/_vendor/more_itertools/__init__.py" type="text/plain"><tt>setuptools._vendor.more_itertools</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#setuptools._vendor">setuptools._vendor</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.more">setuptools._vendor.more_itertools.more</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.recipes">setuptools._vendor.more_itertools.recipes</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#more_itertools">more_itertools</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.more">setuptools._vendor.more_itertools.more</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.recipes">setuptools._vendor.more_itertools.recipes</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="setuptools._vendor.more_itertools.more"></a>
-  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/setuptools/_vendor/more_itertools/more.py" type="text/plain"><tt>setuptools._vendor.more_itertools.more</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#collections">collections</a>
- &#8226;   <a href="#collections.abc">collections.abc</a>
- &#8226;   <a href="#functools">functools</a>
- &#8226;   <a href="#heapq">heapq</a>
- &#8226;   <a href="#itertools">itertools</a>
- &#8226;   <a href="#math">math</a>
- &#8226;   <a href="#operator">operator</a>
- &#8226;   <a href="#queue">queue</a>
- &#8226;   <a href="#random">random</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools">setuptools._vendor.more_itertools</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.recipes">setuptools._vendor.more_itertools.recipes</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#time">time</a>
- &#8226;   <a href="#warnings">warnings</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#setuptools._vendor.more_itertools">setuptools._vendor.more_itertools</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="setuptools._vendor.more_itertools.recipes"></a>
-  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/setuptools/_vendor/more_itertools/recipes.py" type="text/plain"><tt>setuptools._vendor.more_itertools.recipes</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#collections">collections</a>
- &#8226;   <a href="#collections.abc">collections.abc</a>
- &#8226;   <a href="#functools">functools</a>
- &#8226;   <a href="#itertools">itertools</a>
- &#8226;   <a href="#math">math</a>
- &#8226;   <a href="#operator">operator</a>
- &#8226;   <a href="#random">random</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools">setuptools._vendor.more_itertools</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#setuptools._vendor.more_itertools">setuptools._vendor.more_itertools</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.more">setuptools._vendor.more_itertools.more</a>
 
   </div>
 
@@ -31968,89 +32756,6 @@ imports:
 imported by:
     <a href="#setuptools._vendor.packaging.specifiers">setuptools._vendor.packaging.specifiers</a>
  &#8226;   <a href="#setuptools._vendor.packaging.utils">setuptools._vendor.packaging.utils</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="setuptools._vendor.tomli"></a>
-  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/setuptools/_vendor/tomli/__init__.py" type="text/plain"><tt>setuptools._vendor.tomli</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#setuptools._vendor">setuptools._vendor</a>
- &#8226;   <a href="#setuptools._vendor.tomli._parser">setuptools._vendor.tomli._parser</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#setuptools._vendor.tomli._parser">setuptools._vendor.tomli._parser</a>
- &#8226;   <a href="#setuptools._vendor.tomli._re">setuptools._vendor.tomli._re</a>
- &#8226;   <a href="#setuptools._vendor.tomli._types">setuptools._vendor.tomli._types</a>
- &#8226;   <a href="#tomli">tomli</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="setuptools._vendor.tomli._parser"></a>
-  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/setuptools/_vendor/tomli/_parser.py" type="text/plain"><tt>setuptools._vendor.tomli._parser</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#collections.abc">collections.abc</a>
- &#8226;   <a href="#setuptools._vendor.tomli">setuptools._vendor.tomli</a>
- &#8226;   <a href="#setuptools._vendor.tomli._re">setuptools._vendor.tomli._re</a>
- &#8226;   <a href="#setuptools._vendor.tomli._types">setuptools._vendor.tomli._types</a>
- &#8226;   <a href="#string">string</a>
- &#8226;   <a href="#types">types</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#setuptools._vendor.tomli">setuptools._vendor.tomli</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="setuptools._vendor.tomli._re"></a>
-  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/setuptools/_vendor/tomli/_re.py" type="text/plain"><tt>setuptools._vendor.tomli._re</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#datetime">datetime</a>
- &#8226;   <a href="#functools">functools</a>
- &#8226;   <a href="#re">re</a>
- &#8226;   <a href="#setuptools._vendor.tomli">setuptools._vendor.tomli</a>
- &#8226;   <a href="#setuptools._vendor.tomli._types">setuptools._vendor.tomli._types</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#setuptools._vendor.tomli._parser">setuptools._vendor.tomli._parser</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="setuptools._vendor.tomli._types"></a>
-  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/setuptools/_vendor/tomli/_types.py" type="text/plain"><tt>setuptools._vendor.tomli._types</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#setuptools._vendor.tomli">setuptools._vendor.tomli</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#setuptools._vendor.tomli._parser">setuptools._vendor.tomli._parser</a>
- &#8226;   <a href="#setuptools._vendor.tomli._re">setuptools._vendor.tomli._re</a>
 
   </div>
 
@@ -33224,18 +33929,18 @@ imported by:
     <a href="#PIL.EpsImagePlugin">PIL.EpsImagePlugin</a>
  &#8226;   <a href="#PIL.ImageShow">PIL.ImageShow</a>
  &#8226;   <a href="#argparse">argparse</a>
+ &#8226;   <a href="#backports.tarfile">backports.tarfile</a>
  &#8226;   <a href="#cffi.verifier">cffi.verifier</a>
  &#8226;   <a href="#ctypes.util">ctypes.util</a>
  &#8226;   <a href="#customtkinter.windows.widgets.font.font_manager">customtkinter.windows.widgets.font.font_manager</a>
  &#8226;   <a href="#http.server">http.server</a>
+ &#8226;   <a href="#jaraco.context">jaraco.context</a>
  &#8226;   <a href="#multiprocessing.util">multiprocessing.util</a>
  &#8226;   <a href="#numpy.f2py._backends._distutils">numpy.f2py._backends._distutils</a>
  &#8226;   <a href="#numpy.f2py._backends._meson">numpy.f2py._backends._meson</a>
  &#8226;   <a href="#numpy.lib._datasource">numpy.lib._datasource</a>
  &#8226;   <a href="#numpy.testing._private.utils">numpy.testing._private.utils</a>
  &#8226;   <a href="#setuptools._distutils.spawn">setuptools._distutils.spawn</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.context">setuptools._vendor.jaraco.context</a>
  &#8226;   <a href="#setuptools.archive_util">setuptools.archive_util</a>
  &#8226;   <a href="#setuptools.command.bdist_wheel">setuptools.command.bdist_wheel</a>
  &#8226;   <a href="#setuptools.compat.py311">setuptools.compat.py311</a>
@@ -33722,9 +34427,11 @@ imports:
 imported by:
     <a href="#asyncio.base_events">asyncio.base_events</a>
  &#8226;   <a href="#asyncio.unix_events">asyncio.unix_events</a>
+ &#8226;   <a href="#backports.tarfile">backports.tarfile</a>
  &#8226;   <a href="#distutils.dep_util">distutils.dep_util</a>
  &#8226;   <a href="#distutils.file_util">distutils.file_util</a>
  &#8226;   <a href="#genericpath">genericpath</a>
+ &#8226;   <a href="#jaraco.context">jaraco.context</a>
  &#8226;   <a href="#netrc">netrc</a>
  &#8226;   <a href="#nku_grades_gui.py">nku_grades_gui.py</a>
  &#8226;   <a href="#ntpath">ntpath</a>
@@ -33738,7 +34445,6 @@ imported by:
  &#8226;   <a href="#setuptools._distutils.command.install_scripts">setuptools._distutils.command.install_scripts</a>
  &#8226;   <a href="#setuptools._distutils.file_util">setuptools._distutils.file_util</a>
  &#8226;   <a href="#setuptools._shutil">setuptools._shutil</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#site">site</a>
  &#8226;   <a href="#tarfile">tarfile</a>
@@ -33804,7 +34510,6 @@ imported by:
  &#8226;   <a href="#numpy.f2py.crackfortran">numpy.f2py.crackfortran</a>
  &#8226;   <a href="#setuptools._distutils.fancy_getopt">setuptools._distutils.fancy_getopt</a>
  &#8226;   <a href="#setuptools._distutils.util">setuptools._distutils.util</a>
- &#8226;   <a href="#setuptools._vendor.tomli._parser">setuptools._vendor.tomli._parser</a>
  &#8226;   <a href="#setuptools.config._validate_pyproject.formats">setuptools.config._validate_pyproject.formats</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
 
@@ -33863,6 +34568,7 @@ imported by:
  &#8226;   <a href="#PIL.TiffImagePlugin">PIL.TiffImagePlugin</a>
  &#8226;   <a href="#PIL._binary">PIL._binary</a>
  &#8226;   <a href="#asyncio.windows_events">asyncio.windows_events</a>
+ &#8226;   <a href="#backports.tarfile">backports.tarfile</a>
  &#8226;   <a href="#base64">base64</a>
  &#8226;   <a href="#ctypes">ctypes</a>
  &#8226;   <a href="#ctypes.util">ctypes.util</a>
@@ -33880,7 +34586,6 @@ imported by:
  &#8226;   <a href="#platform">platform</a>
  &#8226;   <a href="#plistlib">plistlib</a>
  &#8226;   <a href="#requests.utils">requests.utils</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
  &#8226;   <a href="#setuptools._vendor.packaging._elffile">setuptools._vendor.packaging._elffile</a>
  &#8226;   <a href="#setuptools._vendor.packaging.tags">setuptools._vendor.packaging.tags</a>
  &#8226;   <a href="#setuptools.command.bdist_wheel">setuptools.command.bdist_wheel</a>
@@ -33941,6 +34646,7 @@ imported by:
  &#8226;   <a href="#distutils.spawn">distutils.spawn</a>
  &#8226;   <a href="#distutils.util">distutils.util</a>
  &#8226;   <a href="#http.server">http.server</a>
+ &#8226;   <a href="#jaraco.context">jaraco.context</a>
  &#8226;   <a href="#multiprocessing.util">multiprocessing.util</a>
  &#8226;   <a href="#numpy.f2py">numpy.f2py</a>
  &#8226;   <a href="#numpy.f2py._backends._meson">numpy.f2py._backends._meson</a>
@@ -33960,7 +34666,6 @@ imported by:
  &#8226;   <a href="#setuptools._distutils.cygwinccompiler">setuptools._distutils.cygwinccompiler</a>
  &#8226;   <a href="#setuptools._distutils.spawn">setuptools._distutils.spawn</a>
  &#8226;   <a href="#setuptools._distutils.util">setuptools._distutils.util</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.context">setuptools._vendor.jaraco.context</a>
  &#8226;   <a href="#setuptools._vendor.packaging._musllinux">setuptools._vendor.packaging._musllinux</a>
  &#8226;   <a href="#setuptools._vendor.packaging.tags">setuptools._vendor.packaging.tags</a>
  &#8226;   <a href="#setuptools.installer">setuptools.installer</a>
@@ -34014,6 +34719,8 @@ imported by:
  &#8226;   <a href="#asyncio.unix_events">asyncio.unix_events</a>
  &#8226;   <a href="#asyncio.windows_events">asyncio.windows_events</a>
  &#8226;   <a href="#asyncio.windows_utils">asyncio.windows_utils</a>
+ &#8226;   <a href="#backports.tarfile">backports.tarfile</a>
+ &#8226;   <a href="#backports.tarfile.compat.py38">backports.tarfile.compat.py38</a>
  &#8226;   <a href="#base64">base64</a>
  &#8226;   <a href="#bdb">bdb</a>
  &#8226;   <a href="#bs4">bs4</a>
@@ -34122,6 +34829,7 @@ imported by:
  &#8226;   <a href="#importlib_metadata.compat.py311">importlib_metadata.compat.py311</a>
  &#8226;   <a href="#importlib_resources.compat.py39">importlib_resources.compat.py39</a>
  &#8226;   <a href="#inspect">inspect</a>
+ &#8226;   <a href="#jaraco.context">jaraco.context</a>
  &#8226;   <a href="#linecache">linecache</a>
  &#8226;   <a href="#locale">locale</a>
  &#8226;   <a href="#logging">logging</a>
@@ -34130,6 +34838,8 @@ imported by:
  &#8226;   <a href="#lxml.html.html5parser">lxml.html.html5parser</a>
  &#8226;   <a href="#lxml.isoschematron">lxml.isoschematron</a>
  &#8226;   <a href="#mimetypes">mimetypes</a>
+ &#8226;   <a href="#more_itertools.more">more_itertools.more</a>
+ &#8226;   <a href="#more_itertools.recipes">more_itertools.recipes</a>
  &#8226;   <a href="#multiprocessing">multiprocessing</a>
  &#8226;   <a href="#multiprocessing.connection">multiprocessing.connection</a>
  &#8226;   <a href="#multiprocessing.context">multiprocessing.context</a>
@@ -34239,11 +34949,6 @@ imported by:
  &#8226;   <a href="#setuptools._distutils.util">setuptools._distutils.util</a>
  &#8226;   <a href="#setuptools._importlib">setuptools._importlib</a>
  &#8226;   <a href="#setuptools._path">setuptools._path</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile.compat.py38">setuptools._vendor.backports.tarfile.compat.py38</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.context">setuptools._vendor.jaraco.context</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.more">setuptools._vendor.more_itertools.more</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.recipes">setuptools._vendor.more_itertools.recipes</a>
  &#8226;   <a href="#setuptools._vendor.packaging._manylinux">setuptools._vendor.packaging._manylinux</a>
  &#8226;   <a href="#setuptools._vendor.packaging._musllinux">setuptools._vendor.packaging._musllinux</a>
  &#8226;   <a href="#setuptools._vendor.packaging.markers">setuptools._vendor.packaging.markers</a>
@@ -34280,6 +34985,7 @@ imported by:
  &#8226;   <a href="#tkinter">tkinter</a>
  &#8226;   <a href="#tkinter.filedialog">tkinter.filedialog</a>
  &#8226;   <a href="#tokenize">tokenize</a>
+ &#8226;   <a href="#tomli._parser">tomli._parser</a>
  &#8226;   <a href="#traceback">traceback</a>
  &#8226;   <a href="#types">types</a>
  &#8226;   <a href="#typing">typing</a>
@@ -34400,8 +35106,8 @@ imports:
   <div class="import">
 imported by:
     <a href="#distutils.archive_util">distutils.archive_util</a>
+ &#8226;   <a href="#jaraco.context">jaraco.context</a>
  &#8226;   <a href="#setuptools._distutils.archive_util">setuptools._distutils.archive_util</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.context">setuptools._vendor.jaraco.context</a>
  &#8226;   <a href="#setuptools.archive_util">setuptools.archive_util</a>
  &#8226;   <a href="#shutil">shutil</a>
 
@@ -34440,6 +35146,7 @@ imported by:
  &#8226;   <a href="#distutils.util">distutils.util</a>
  &#8226;   <a href="#importlib._common">importlib._common</a>
  &#8226;   <a href="#importlib_resources._common">importlib_resources._common</a>
+ &#8226;   <a href="#jaraco.context">jaraco.context</a>
  &#8226;   <a href="#lxml.html">lxml.html</a>
  &#8226;   <a href="#multiprocessing.connection">multiprocessing.connection</a>
  &#8226;   <a href="#multiprocessing.heap">multiprocessing.heap</a>
@@ -34455,7 +35162,6 @@ imported by:
  &#8226;   <a href="#setuptools._core_metadata">setuptools._core_metadata</a>
  &#8226;   <a href="#setuptools._distutils.ccompiler">setuptools._distutils.ccompiler</a>
  &#8226;   <a href="#setuptools._distutils.util">setuptools._distutils.util</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.context">setuptools._vendor.jaraco.context</a>
  &#8226;   <a href="#setuptools.installer">setuptools.installer</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
  &#8226;   <a href="#urllib.response">urllib.response</a>
@@ -34635,6 +35341,7 @@ imported by:
  &#8226;   <a href="#_strptime">_strptime</a>
  &#8226;   <a href="#asyncio.base_events">asyncio.base_events</a>
  &#8226;   <a href="#asyncio.windows_events">asyncio.windows_events</a>
+ &#8226;   <a href="#backports.tarfile">backports.tarfile</a>
  &#8226;   <a href="#concurrent.futures._base">concurrent.futures._base</a>
  &#8226;   <a href="#datetime">datetime</a>
  &#8226;   <a href="#email._parseaddr">email._parseaddr</a>
@@ -34645,7 +35352,9 @@ imported by:
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#http.cookies">http.cookies</a>
  &#8226;   <a href="#http.server">http.server</a>
+ &#8226;   <a href="#jaraco.functools">jaraco.functools</a>
  &#8226;   <a href="#logging">logging</a>
+ &#8226;   <a href="#more_itertools.more">more_itertools.more</a>
  &#8226;   <a href="#multiprocessing.connection">multiprocessing.connection</a>
  &#8226;   <a href="#multiprocessing.managers">multiprocessing.managers</a>
  &#8226;   <a href="#multiprocessing.pool">multiprocessing.pool</a>
@@ -34665,9 +35374,6 @@ imported by:
  &#8226;   <a href="#requests.auth">requests.auth</a>
  &#8226;   <a href="#requests.cookies">requests.cookies</a>
  &#8226;   <a href="#requests.sessions">requests.sessions</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.functools">setuptools._vendor.jaraco.functools</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.more">setuptools._vendor.more_itertools.more</a>
  &#8226;   <a href="#setuptools.command.egg_info">setuptools.command.egg_info</a>
  &#8226;   <a href="#socketserver">socketserver</a>
  &#8226;   <a href="#ssl">ssl</a>
@@ -34935,15 +35641,82 @@ imported by:
 
 <div class="node">
   <a name="tomli"></a>
-  <a target="code" href="" type="text/plain"><tt>tomli</tt></a>
-<span class="moduletype">AliasNode</span>  <div class="import">
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/tomli/__init__.py" type="text/plain"><tt>tomli</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
 imports:
-    <a href="#setuptools._vendor.tomli">setuptools._vendor.tomli</a>
+    <a href="#tomli._parser">tomli._parser</a>
 
   </div>
   <div class="import">
 imported by:
     <a href="#setuptools.compat.py310">setuptools.compat.py310</a>
+ &#8226;   <a href="#tomli._parser">tomli._parser</a>
+ &#8226;   <a href="#tomli._re">tomli._re</a>
+ &#8226;   <a href="#tomli._types">tomli._types</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="tomli._parser"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/tomli/_parser.py" type="text/plain"><tt>tomli._parser</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#collections.abc">collections.abc</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#tomli">tomli</a>
+ &#8226;   <a href="#tomli._re">tomli._re</a>
+ &#8226;   <a href="#tomli._types">tomli._types</a>
+ &#8226;   <a href="#types">types</a>
+ &#8226;   <a href="#typing">typing</a>
+ &#8226;   <a href="#warnings">warnings</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#tomli">tomli</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="tomli._re"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/tomli/_re.py" type="text/plain"><tt>tomli._re</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#datetime">datetime</a>
+ &#8226;   <a href="#functools">functools</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#tomli">tomli</a>
+ &#8226;   <a href="#tomli._types">tomli._types</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#tomli._parser">tomli._parser</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="tomli._types"></a>
+  <a target="code" href="///D:/30515/anaconda/envs/new/lib/site-packages/tomli/_types.py" type="text/plain"><tt>tomli._types</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#tomli">tomli</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#tomli._parser">tomli._parser</a>
+ &#8226;   <a href="#tomli._re">tomli._re</a>
 
   </div>
 
@@ -35110,6 +35883,7 @@ imported by:
  &#8226;   <a href="#importlib_resources._common">importlib_resources._common</a>
  &#8226;   <a href="#importlib_resources.future.adapters">importlib_resources.future.adapters</a>
  &#8226;   <a href="#inspect">inspect</a>
+ &#8226;   <a href="#jaraco.functools">jaraco.functools</a>
  &#8226;   <a href="#lxml.builder">lxml.builder</a>
  &#8226;   <a href="#lxml.html._difflib">lxml.html._difflib</a>
  &#8226;   <a href="#lxml.sax">lxml.sax</a>
@@ -35134,8 +35908,6 @@ imported by:
  &#8226;   <a href="#queue">queue</a>
  &#8226;   <a href="#runpy">runpy</a>
  &#8226;   <a href="#setuptools._distutils.ccompiler">setuptools._distutils.ccompiler</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.functools">setuptools._vendor.jaraco.functools</a>
- &#8226;   <a href="#setuptools._vendor.tomli._parser">setuptools._vendor.tomli._parser</a>
  &#8226;   <a href="#setuptools.command.bdist_egg">setuptools.command.bdist_egg</a>
  &#8226;   <a href="#setuptools.config._apply_pyprojecttoml">setuptools.config._apply_pyprojecttoml</a>
  &#8226;   <a href="#setuptools.config.expand">setuptools.config.expand</a>
@@ -35146,6 +35918,7 @@ imported by:
  &#8226;   <a href="#sysconfig">sysconfig</a>
  &#8226;   <a href="#tempfile">tempfile</a>
  &#8226;   <a href="#tkinter">tkinter</a>
+ &#8226;   <a href="#tomli._parser">tomli._parser</a>
  &#8226;   <a href="#typing">typing</a>
  &#8226;   <a href="#typing_extensions">typing_extensions</a>
  &#8226;   <a href="#unittest.case">unittest.case</a>
@@ -35252,6 +36025,24 @@ imported by:
  &#8226;   <a href="#bs4.filter">bs4.filter</a>
  &#8226;   <a href="#bs4.formatter">bs4.formatter</a>
  &#8226;   <a href="#certifi.core">certifi.core</a>
+ &#8226;   <a href="#chardet">chardet</a>
+ &#8226;   <a href="#chardet.chardistribution">chardet.chardistribution</a>
+ &#8226;   <a href="#chardet.charsetgroupprober">chardet.charsetgroupprober</a>
+ &#8226;   <a href="#chardet.charsetprober">chardet.charsetprober</a>
+ &#8226;   <a href="#chardet.codingstatemachinedict">chardet.codingstatemachinedict</a>
+ &#8226;   <a href="#chardet.escprober">chardet.escprober</a>
+ &#8226;   <a href="#chardet.eucjpprober">chardet.eucjpprober</a>
+ &#8226;   <a href="#chardet.hebrewprober">chardet.hebrewprober</a>
+ &#8226;   <a href="#chardet.jpcntx">chardet.jpcntx</a>
+ &#8226;   <a href="#chardet.latin1prober">chardet.latin1prober</a>
+ &#8226;   <a href="#chardet.macromanprober">chardet.macromanprober</a>
+ &#8226;   <a href="#chardet.mbcharsetprober">chardet.mbcharsetprober</a>
+ &#8226;   <a href="#chardet.resultdict">chardet.resultdict</a>
+ &#8226;   <a href="#chardet.sbcharsetprober">chardet.sbcharsetprober</a>
+ &#8226;   <a href="#chardet.sjisprober">chardet.sjisprober</a>
+ &#8226;   <a href="#chardet.universaldetector">chardet.universaldetector</a>
+ &#8226;   <a href="#chardet.utf1632prober">chardet.utf1632prober</a>
+ &#8226;   <a href="#chardet.utf8prober">chardet.utf8prober</a>
  &#8226;   <a href="#charset_normalizer.api">charset_normalizer.api</a>
  &#8226;   <a href="#charset_normalizer.cd">charset_normalizer.cd</a>
  &#8226;   <a href="#charset_normalizer.legacy">charset_normalizer.legacy</a>
@@ -35328,6 +36119,7 @@ imported by:
  &#8226;   <a href="#importlib_resources._common">importlib_resources._common</a>
  &#8226;   <a href="#importlib_resources.abc">importlib_resources.abc</a>
  &#8226;   <a href="#jaraco.collections">jaraco.collections</a>
+ &#8226;   <a href="#jaraco.functools">jaraco.functools</a>
  &#8226;   <a href="#numpy._typing">numpy._typing</a>
  &#8226;   <a href="#numpy._typing._array_like">numpy._typing._array_like</a>
  &#8226;   <a href="#numpy._typing._char_codes">numpy._typing._char_codes</a>
@@ -35352,8 +36144,6 @@ imported by:
  &#8226;   <a href="#packaging._musllinux">packaging._musllinux</a>
  &#8226;   <a href="#packaging._parser">packaging._parser</a>
  &#8226;   <a href="#packaging._tokenizer">packaging._tokenizer</a>
- &#8226;   <a href="#packaging.licenses">packaging.licenses</a>
- &#8226;   <a href="#packaging.licenses._spdx">packaging.licenses._spdx</a>
  &#8226;   <a href="#packaging.markers">packaging.markers</a>
  &#8226;   <a href="#packaging.metadata">packaging.metadata</a>
  &#8226;   <a href="#packaging.requirements">packaging.requirements</a>
@@ -35385,7 +36175,6 @@ imported by:
  &#8226;   <a href="#setuptools._reqs">setuptools._reqs</a>
  &#8226;   <a href="#setuptools._shutil">setuptools._shutil</a>
  &#8226;   <a href="#setuptools._static">setuptools._static</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.context">setuptools._vendor.jaraco.context</a>
  &#8226;   <a href="#setuptools._vendor.packaging._elffile">setuptools._vendor.packaging._elffile</a>
  &#8226;   <a href="#setuptools._vendor.packaging._manylinux">setuptools._vendor.packaging._manylinux</a>
  &#8226;   <a href="#setuptools._vendor.packaging._musllinux">setuptools._vendor.packaging._musllinux</a>
@@ -35397,9 +36186,6 @@ imported by:
  &#8226;   <a href="#setuptools._vendor.packaging.tags">setuptools._vendor.packaging.tags</a>
  &#8226;   <a href="#setuptools._vendor.packaging.utils">setuptools._vendor.packaging.utils</a>
  &#8226;   <a href="#setuptools._vendor.packaging.version">setuptools._vendor.packaging.version</a>
- &#8226;   <a href="#setuptools._vendor.tomli._parser">setuptools._vendor.tomli._parser</a>
- &#8226;   <a href="#setuptools._vendor.tomli._re">setuptools._vendor.tomli._re</a>
- &#8226;   <a href="#setuptools._vendor.tomli._types">setuptools._vendor.tomli._types</a>
  &#8226;   <a href="#setuptools.command._requirestxt">setuptools.command._requirestxt</a>
  &#8226;   <a href="#setuptools.command.bdist_egg">setuptools.command.bdist_egg</a>
  &#8226;   <a href="#setuptools.command.bdist_wheel">setuptools.command.bdist_wheel</a>
@@ -35430,6 +36216,9 @@ imported by:
  &#8226;   <a href="#soupsieve.pretty">soupsieve.pretty</a>
  &#8226;   <a href="#soupsieve.util">soupsieve.util</a>
  &#8226;   <a href="#threadpoolctl">threadpoolctl</a>
+ &#8226;   <a href="#tomli._parser">tomli._parser</a>
+ &#8226;   <a href="#tomli._re">tomli._re</a>
+ &#8226;   <a href="#tomli._types">tomli._types</a>
  &#8226;   <a href="#typing_extensions">typing_extensions</a>
  &#8226;   <a href="#urllib3">urllib3</a>
  &#8226;   <a href="#urllib3._base_connection">urllib3._base_connection</a>
@@ -35511,6 +36300,7 @@ imported by:
  &#8226;   <a href="#customtkinter.windows.widgets.scaling.scaling_base_class">customtkinter.windows.widgets.scaling.scaling_base_class</a>
  &#8226;   <a href="#hpack.struct">hpack.struct</a>
  &#8226;   <a href="#jaraco.collections">jaraco.collections</a>
+ &#8226;   <a href="#packaging.metadata">packaging.metadata</a>
  &#8226;   <a href="#pkg_resources">pkg_resources</a>
  &#8226;   <a href="#setuptools._path">setuptools._path</a>
  &#8226;   <a href="#setuptools._reqs">setuptools._reqs</a>
@@ -35974,12 +36764,12 @@ imports:
   <div class="import">
 imported by:
     <a href="#http.cookiejar">http.cookiejar</a>
+ &#8226;   <a href="#jaraco.context">jaraco.context</a>
  &#8226;   <a href="#lxml.ElementInclude">lxml.ElementInclude</a>
  &#8226;   <a href="#lxml.html">lxml.html</a>
  &#8226;   <a href="#lxml.html.html5parser">lxml.html.html5parser</a>
  &#8226;   <a href="#numpy.lib._datasource">numpy.lib._datasource</a>
  &#8226;   <a href="#requests.compat">requests.compat</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.context">setuptools._vendor.jaraco.context</a>
  &#8226;   <a href="#setuptools.config._validate_pyproject.formats">setuptools.config._validate_pyproject.formats</a>
  &#8226;   <a href="#xml.sax.saxutils">xml.sax.saxutils</a>
 
@@ -37228,6 +38018,7 @@ imported by:
  &#8226;   <a href="#asyncio.trsock">asyncio.trsock</a>
  &#8226;   <a href="#asyncio.unix_events">asyncio.unix_events</a>
  &#8226;   <a href="#asyncio.windows_utils">asyncio.windows_utils</a>
+ &#8226;   <a href="#backports.tarfile">backports.tarfile</a>
  &#8226;   <a href="#bs4">bs4</a>
  &#8226;   <a href="#bs4._deprecation">bs4._deprecation</a>
  &#8226;   <a href="#bs4.builder">bs4.builder</a>
@@ -37274,8 +38065,10 @@ imported by:
  &#8226;   <a href="#importlib_resources._functional">importlib_resources._functional</a>
  &#8226;   <a href="#importlib_resources.readers">importlib_resources.readers</a>
  &#8226;   <a href="#inspect">inspect</a>
+ &#8226;   <a href="#jaraco.functools">jaraco.functools</a>
  &#8226;   <a href="#locale">locale</a>
  &#8226;   <a href="#logging">logging</a>
+ &#8226;   <a href="#more_itertools.more">more_itertools.more</a>
  &#8226;   <a href="#multiprocessing.forkserver">multiprocessing.forkserver</a>
  &#8226;   <a href="#multiprocessing.pool">multiprocessing.pool</a>
  &#8226;   <a href="#multiprocessing.resource_tracker">multiprocessing.resource_tracker</a>
@@ -37350,10 +38143,6 @@ imported by:
  &#8226;   <a href="#setuptools._distutils.sysconfig">setuptools._distutils.sysconfig</a>
  &#8226;   <a href="#setuptools._distutils.util">setuptools._distutils.util</a>
  &#8226;   <a href="#setuptools._distutils.version">setuptools._distutils.version</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.context">setuptools._vendor.jaraco.context</a>
- &#8226;   <a href="#setuptools._vendor.jaraco.functools">setuptools._vendor.jaraco.functools</a>
- &#8226;   <a href="#setuptools._vendor.more_itertools.more">setuptools._vendor.more_itertools.more</a>
  &#8226;   <a href="#setuptools._vendor.packaging._manylinux">setuptools._vendor.packaging._manylinux</a>
  &#8226;   <a href="#setuptools.command.bdist_wheel">setuptools.command.bdist_wheel</a>
  &#8226;   <a href="#setuptools.warnings">setuptools.warnings</a>
@@ -37367,6 +38156,7 @@ imported by:
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#tempfile">tempfile</a>
  &#8226;   <a href="#threadpoolctl">threadpoolctl</a>
+ &#8226;   <a href="#tomli._parser">tomli._parser</a>
  &#8226;   <a href="#typing_extensions">typing_extensions</a>
  &#8226;   <a href="#unittest.case">unittest.case</a>
  &#8226;   <a href="#unittest.loader">unittest.loader</a>
@@ -38710,9 +39500,9 @@ imported by:
 imported by:
     <a href="#PIL.PdfParser">PIL.PdfParser</a>
  &#8226;   <a href="#PIL.PngImagePlugin">PIL.PngImagePlugin</a>
+ &#8226;   <a href="#backports.tarfile">backports.tarfile</a>
  &#8226;   <a href="#encodings.zlib_codec">encodings.zlib_codec</a>
  &#8226;   <a href="#gzip">gzip</a>
- &#8226;   <a href="#setuptools._vendor.backports.tarfile">setuptools._vendor.backports.tarfile</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#urllib3.response">urllib3.response</a>
