@@ -2,6 +2,7 @@
 name = "NKU成绩查询"
 description = "南开大学成绩查询助手"
 version = "3.0.0"
+entry_point = "main.py"
 
 [android]
 permissions = [
@@ -11,3 +12,4 @@ permissions = [
     "android.permission.READ_EXTERNAL_STORAGE"
 ]
 package_name = "com.nku.grades"
+include_packages = ["src"]
