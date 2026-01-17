@@ -3,118 +3,205 @@ NKU成绩查询 v3.0 - 主应用
 底部导航栏 + 页面路由
 """
 
-import flet as ft
-from .theme import get_app_theme
-from .pages.home import HomePage
-from .pages.query import QueryPage
-from .pages.monitor import MonitorPage
-from .pages.settings import SettingsPage
+import sys
+import traceback
+
+print("[DEBUG] app.py - 开始导入模块...")
+
+try:
+    import flet as ft
+    print("[DEBUG] app.py - flet 导入成功")
+
+    from .theme import get_app_theme
+    print("[DEBUG] app.py - theme 导入成功")
+
+    from .pages.home import HomePage
+    print("[DEBUG] app.py - HomePage 导入成功")
+
+    from .pages.query import QueryPage
+    print("[DEBUG] app.py - QueryPage 导入成功")
+
+    from .pages.monitor import MonitorPage
+    print("[DEBUG] app.py - MonitorPage 导入成功")
+
+    from .pages.settings import SettingsPage
+    print("[DEBUG] app.py - SettingsPage 导入成功")
+
+except Exception as e:
+    print(f"[ERROR] app.py - 导入失败: {e}")
+    print(f"[ERROR] app.py - 详细错误:\n{traceback.format_exc()}")
+    raise
 
 
 class NKUGradesApp:
     """NKU成绩查询主应用类"""
 
     def __init__(self, page: ft.Page):
-        self.page = page
-        self.current_page_index = 0
+        print("[DEBUG] NKUGradesApp.__init__ - 开始初始化")
 
-        # 应用状态（在页面间共享）
-        self.app_state = {
-            "logged_in": False,
-            "auth": None,
-            "semesters": [],
-        }
+        try:
+            self.page = page
+            self.current_page_index = 0
+            print("[DEBUG] NKUGradesApp - 基本属性设置完成")
 
-        # 配置页面
-        self.page.title = "NKU成绩查询"
-        self.page.theme = get_app_theme()
+            # 应用状态（在页面间共享）
+            self.app_state = {
+                "logged_in": False,
+                "auth": None,
+                "semesters": [],
+            }
+            print("[DEBUG] NKUGradesApp - 应用状态初始化完成")
 
-        # 设置中文字体（Windows 用微软雅黑，其他平台用系统默认）
-        import platform
-        if platform.system() == "Windows":
-            self.page.theme.font_family = "Microsoft YaHei"
+            # 配置页面
+            self.page.title = "NKU成绩查询"
+            print("[DEBUG] NKUGradesApp - 页面标题设置完成")
 
-        self.page.padding = 0
+            self.page.theme = get_app_theme()
+            print("[DEBUG] NKUGradesApp - 主题设置完成")
 
-        # 仅在桌面平台设置窗口大小（Android 上不支持 window 属性）
-        if hasattr(self.page, "window") and self.page.window is not None:
-            try:
-                self.page.window.width = 400
-                self.page.window.height = 700
-                self.page.window.resizable = True
-            except:
-                pass  # Android 上忽略窗口设置
+            # 设置中文字体（Windows 用微软雅黑，其他平台用系统默认）
+            import platform
+            print(f"[DEBUG] NKUGradesApp - 平台: {platform.system()}")
+            if platform.system() == "Windows":
+                self.page.theme.font_family = "Microsoft YaHei"
+                print("[DEBUG] NKUGradesApp - 字体设置为微软雅黑")
+
+            self.page.padding = 0
+            print("[DEBUG] NKUGradesApp - padding 设置完成")
+
+            # 仅在桌面平台设置窗口大小（Android 上不支持 window 属性）
+            if hasattr(self.page, "window") and self.page.window is not None:
+                try:
+                    self.page.window.width = 400
+                    self.page.window.height = 700
+                    self.page.window.resizable = True
+                    print("[DEBUG] NKUGradesApp - 窗口大小设置完成")
+                except Exception as e:
+                    print(f"[DEBUG] NKUGradesApp - 窗口设置失败（正常，Android平台）: {e}")
+            else:
+                print("[DEBUG] NKUGradesApp - 无窗口属性（移动平台）")
+
+        except Exception as e:
+            print(f"[ERROR] NKUGradesApp.__init__ - 初始化失败: {e}")
+            print(f"[ERROR] 详细错误:\n{traceback.format_exc()}")
+            raise
 
         # 创建页面实例
-        self.home_page = HomePage(self.app_state)
-        self.query_page = QueryPage(self.app_state)
-        self.monitor_page = MonitorPage(self.app_state)
-        self.settings_page = SettingsPage(self.app_state)
+        try:
+            print("[DEBUG] NKUGradesApp - 正在创建 HomePage...")
+            self.home_page = HomePage(self.app_state)
+            print("[DEBUG] NKUGradesApp - HomePage 创建成功")
+
+            print("[DEBUG] NKUGradesApp - 正在创建 QueryPage...")
+            self.query_page = QueryPage(self.app_state)
+            print("[DEBUG] NKUGradesApp - QueryPage 创建成功")
+
+            print("[DEBUG] NKUGradesApp - 正在创建 MonitorPage...")
+            self.monitor_page = MonitorPage(self.app_state)
+            print("[DEBUG] NKUGradesApp - MonitorPage 创建成功")
+
+            print("[DEBUG] NKUGradesApp - 正在创建 SettingsPage...")
+            self.settings_page = SettingsPage(self.app_state)
+            print("[DEBUG] NKUGradesApp - SettingsPage 创建成功")
+
+        except Exception as e:
+            print(f"[ERROR] NKUGradesApp - 页面创建失败: {e}")
+            print(f"[ERROR] 详细错误:\n{traceback.format_exc()}")
+            raise
 
         # 检查是否已保存账号密码，决定启动页面
-        from ..data.database import get_db
-        db = get_db()
-        username = db.get_config("username")
-        password = db.get_config("password")
+        try:
+            print("[DEBUG] NKUGradesApp - 正在加载数据库...")
+            from ..data.database import get_db
+            db = get_db()
+            print("[DEBUG] NKUGradesApp - 数据库加载成功")
+
+            print("[DEBUG] NKUGradesApp - 正在读取配置...")
+            username = db.get_config("username")
+            password = db.get_config("password")
+            print(f"[DEBUG] NKUGradesApp - 配置读取完成，username存在: {bool(username)}")
+
+        except Exception as e:
+            print(f"[ERROR] NKUGradesApp - 数据库/配置读取失败: {e}")
+            print(f"[ERROR] 详细错误:\n{traceback.format_exc()}")
+            # 如果数据库失败，使用默认值
+            username = None
+            password = None
 
         # 如果未登录，默认打开设置页；否则打开首页
-        if not username or not password:
-            initial_index = 3  # 设置页
-            initial_content = self.settings_page
-        else:
-            initial_index = 0  # 首页
-            initial_content = self.home_page
-            # 自动登录（后台线程）
-            import threading
-            threading.Thread(target=self._auto_login, args=(username, password), daemon=True).start()
+        try:
+            if not username or not password:
+                initial_index = 3  # 设置页
+                initial_content = self.settings_page
+                print("[DEBUG] NKUGradesApp - 未登录，显示设置页")
+            else:
+                initial_index = 0  # 首页
+                initial_content = self.home_page
+                print("[DEBUG] NKUGradesApp - 已登录，显示首页")
+                # 自动登录（后台线程）
+                import threading
+                threading.Thread(target=self._auto_login, args=(username, password), daemon=True).start()
+                print("[DEBUG] NKUGradesApp - 自动登录线程已启动")
 
-        # 创建页面容器
-        self.page_container = ft.Container(
-            content=initial_content,
-            expand=True,
-        )
-
-        # 创建底部导航栏
-        self.navigation_bar = ft.NavigationBar(
-            destinations=[
-                ft.NavigationBarDestination(
-                    icon=ft.icons.HOME_OUTLINED,
-                    selected_icon=ft.icons.HOME,
-                    label="首页",
-                ),
-                ft.NavigationBarDestination(
-                    icon=ft.icons.SEARCH_OUTLINED,
-                    selected_icon=ft.icons.SEARCH,
-                    label="查询",
-                ),
-                ft.NavigationBarDestination(
-                    icon=ft.icons.MONITOR_HEART_OUTLINED,
-                    selected_icon=ft.icons.MONITOR_HEART,
-                    label="监控",
-                ),
-                ft.NavigationBarDestination(
-                    icon=ft.icons.SETTINGS_OUTLINED,
-                    selected_icon=ft.icons.SETTINGS,
-                    label="设置",
-                ),
-            ],
-            selected_index=initial_index,
-            on_change=self.on_navigation_change,
-        )
-
-        # 构建页面布局
-        self.page.add(
-            ft.Column(
-                [
-                    # 主内容区域
-                    self.page_container,
-                    # 底部导航栏
-                    self.navigation_bar,
-                ],
-                spacing=0,
+            # 创建页面容器
+            print("[DEBUG] NKUGradesApp - 正在创建页面容器...")
+            self.page_container = ft.Container(
+                content=initial_content,
                 expand=True,
             )
-        )
+            print("[DEBUG] NKUGradesApp - 页面容器创建成功")
+
+            # 创建底部导航栏
+            print("[DEBUG] NKUGradesApp - 正在创建底部导航栏...")
+            self.navigation_bar = ft.NavigationBar(
+                destinations=[
+                    ft.NavigationBarDestination(
+                        icon=ft.icons.HOME_OUTLINED,
+                        selected_icon=ft.icons.HOME,
+                        label="首页",
+                    ),
+                    ft.NavigationBarDestination(
+                        icon=ft.icons.SEARCH_OUTLINED,
+                        selected_icon=ft.icons.SEARCH,
+                        label="查询",
+                    ),
+                    ft.NavigationBarDestination(
+                        icon=ft.icons.MONITOR_HEART_OUTLINED,
+                        selected_icon=ft.icons.MONITOR_HEART,
+                        label="监控",
+                    ),
+                    ft.NavigationBarDestination(
+                        icon=ft.icons.SETTINGS_OUTLINED,
+                        selected_icon=ft.icons.SETTINGS,
+                        label="设置",
+                    ),
+                ],
+                selected_index=initial_index,
+                on_change=self.on_navigation_change,
+            )
+            print("[DEBUG] NKUGradesApp - 底部导航栏创建成功")
+
+            # 构建页面布局
+            print("[DEBUG] NKUGradesApp - 正在构建页面布局...")
+            self.page.add(
+                ft.Column(
+                    [
+                        # 主内容区域
+                        self.page_container,
+                        # 底部导航栏
+                        self.navigation_bar,
+                    ],
+                    spacing=0,
+                    expand=True,
+                )
+            )
+            print("[DEBUG] NKUGradesApp - 页面布局添加成功")
+            print("[DEBUG] NKUGradesApp - 初始化完成！")
+
+        except Exception as e:
+            print(f"[ERROR] NKUGradesApp - UI构建失败: {e}")
+            print(f"[ERROR] 详细错误:\n{traceback.format_exc()}")
+            raise
 
     def _auto_login(self, username: str, password: str):
         """自动登录（后台线程）"""
@@ -175,4 +262,14 @@ class NKUGradesApp:
 
 def main(page: ft.Page):
     """应用入口函数"""
-    NKUGradesApp(page)
+    print("[DEBUG] main() - 开始创建 NKUGradesApp")
+    try:
+        NKUGradesApp(page)
+        print("[DEBUG] main() - NKUGradesApp 创建成功")
+    except Exception as e:
+        print(f"[ERROR] main() - 创建失败: {e}")
+        import traceback
+        print(f"[ERROR] 详细错误:\n{traceback.format_exc()}")
+        # 显示错误信息给用户
+        page.add(ft.Text(f"启动失败: {str(e)}", color=ft.colors.RED))
+        raise

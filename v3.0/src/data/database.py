@@ -19,13 +19,25 @@ class Database:
         Args:
             db_path: 数据库文件路径，不指定则使用默认路径
         """
-        self.db_path = db_path or get_database_path()
-        self._init_database()
+        print("[DEBUG] Database.__init__ - 开始初始化数据库")
+        try:
+            self.db_path = db_path or get_database_path()
+            print(f"[DEBUG] Database - 数据库路径: {self.db_path}")
+            self._init_database()
+            print("[DEBUG] Database - 数据库初始化成功")
+        except Exception as e:
+            print(f"[ERROR] Database.__init__ - 初始化失败: {e}")
+            import traceback
+            print(f"[ERROR] 详细错误:\n{traceback.format_exc()}")
+            raise
 
     def _init_database(self):
         """初始化数据库表结构"""
-        conn = sqlite3.connect(self.db_path)
-        cursor = conn.cursor()
+        print(f"[DEBUG] Database._init_database - 正在连接数据库: {self.db_path}")
+        try:
+            conn = sqlite3.connect(str(self.db_path))
+            cursor = conn.cursor()
+            print("[DEBUG] Database - 数据库连接成功")
 
         # 配置表
         cursor.execute("""
@@ -65,9 +77,11 @@ class Database:
                 message TEXT
             )
         """)
+        print("[DEBUG] Database - 数据库表创建完成")
 
         conn.commit()
         conn.close()
+        print("[DEBUG] Database - 数据库初始化完成")
 
     def save_config(self, key: str, value: str):
         """保存配置"""
