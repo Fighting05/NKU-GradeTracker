@@ -223,25 +223,29 @@ class MonitorPage(ft.Container):
     def _update_countdown(self):
         """更新倒计时显示"""
         while self.monitor and self.monitor.is_running():
-            countdown = self.monitor.get_countdown()
-            minutes = countdown // 60
-            seconds = countdown % 60
+            try:
+                countdown = self.monitor.get_countdown()
+                minutes = countdown // 60
+                seconds = countdown % 60
 
-            async def update_ui():
-                self.countdown_text.value = f"下次检查: {minutes} 分 {seconds} 秒后"
-                self.update()
+                # 直接更新，不使用 async，避免窗口最小化时暂停
+                if hasattr(self, 'page') and self.page:
+                    self.countdown_text.value = f"下次检查: {minutes} 分 {seconds} 秒后"
+                    try:
+                        self.page.update()
+                    except:
+                        pass  # 忽略更新失败
 
-            if hasattr(self, 'page') and self.page:
-                self.page.run_task(update_ui)
-
-            time.sleep(1)
+                time.sleep(1)
+            except:
+                break
 
     def _log(self, message: str):
         """日志回调"""
         print(f"[Monitor] {message}")
 
-        # 添加到实时日志框
-        async def update_log():
+        # 添加到实时日志框（直接更新，避免窗口最小化时暂停）
+        try:
             import datetime
             timestamp = datetime.datetime.now().strftime("%H:%M:%S")
             log_line = f"[{timestamp}] {message}\n"
@@ -254,10 +258,13 @@ class MonitorPage(ft.Container):
                 lines = lines[-50:]
             self.realtime_log.value = '\n'.join(lines)
 
-            self.update()
-
-        if hasattr(self, 'page') and self.page:
-            self.page.run_task(update_log)
+            if hasattr(self, 'page') and self.page:
+                try:
+                    self.page.update()
+                except:
+                    pass  # 忽略更新失败
+        except Exception as e:
+            print(f"[Monitor] 日志更新失败: {e}")
 
     def _on_grade_change(self, new_courses, updated_courses):
         """成绩变化回调"""

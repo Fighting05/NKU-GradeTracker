@@ -29,12 +29,21 @@ class NKUGradesApp:
         self.page.title = "NKU成绩查询"
         self.page.theme = get_app_theme()
 
-        # 设置中文字体（微软雅黑，Windows系统自带）
-        self.page.theme.font_family = "Microsoft YaHei"
+        # 设置中文字体（Windows 用微软雅黑，其他平台用系统默认）
+        import platform
+        if platform.system() == "Windows":
+            self.page.theme.font_family = "Microsoft YaHei"
+
         self.page.padding = 0
-        self.page.window.width = 400
-        self.page.window.height = 700
-        self.page.window.resizable = True
+
+        # 仅在桌面平台设置窗口大小（Android 上不支持 window 属性）
+        if hasattr(self.page, "window") and self.page.window is not None:
+            try:
+                self.page.window.width = 400
+                self.page.window.height = 700
+                self.page.window.resizable = True
+            except:
+                pass  # Android 上忽略窗口设置
 
         # 创建页面实例
         self.home_page = HomePage(self.app_state)
