@@ -72,23 +72,33 @@ class EnhancedGradeMonitor(threading.Thread):
                 
                 self.update_status(f"🔄 正在进行第 {check_count} 次检查...", "yellow")
                 
-                # 登录检查
-                if not self.monitor.login():
-                    self.log("❌ 登录失败，等待下次检查")
-                    self.update_status("❌ 登录失败", "red")
-                elif not self.monitor.access_eamis():
-                    self.log("❌ 访问教务系统失败，等待下次检查")
-                    self.update_status("❌ 访问教务系统失败", "red")
+                # 登录检查 - 使用双重保险机制
+                webvpn_success = self.monitor.login()
+
+                if webvpn_success:
+                    eamis_success = self.monitor.access_eamis()
+                    if not eamis_success:
+                        self.log("⚠️ WebVPN登录成功但教务系统访问失败，尝试直接登录...")
+                        if not self.monitor.try_eamis_direct_login():
+                            self.log("❌ 所有登录方式都失败，等待下次检查")
+                            self.update_status("❌ 登录失败", "red")
+                            continue
                 else:
-                    # 检查成绩
-                    has_changes = self.monitor.check_grades(self.semester_id)
-                    
-                    if has_changes:
-                        self.log("🎊 本次检查发现成绩变化！")
-                        self.update_status("🎉 发现成绩变化！", "green")
-                    else:
-                        self.log("😴 本次检查无变化")
-                        self.update_status("✅ 监控正常，无变化", "green")
+                    self.log("⚠️ WebVPN登录失败，尝试直接登录...")
+                    if not self.monitor.try_eamis_direct_login():
+                        self.log("❌ 所有登录方式都失败，等待下次检查")
+                        self.update_status("❌ 登录失败", "red")
+                        continue
+
+                # 检查成绩
+                has_changes = self.monitor.check_grades(self.semester_id)
+
+                if has_changes:
+                    self.log("🎊 本次检查发现成绩变化！")
+                    self.update_status("🎉 发现成绩变化！", "green")
+                else:
+                    self.log("😴 本次检查无变化")
+                    self.update_status("✅ 监控正常，无变化", "green")
                 
                 if not self.running:
                     break
@@ -561,46 +571,58 @@ class ModernGradeApp(ctk.CTk):
         thread.start()
         
     def _verify_account_thread(self):
-        """验证账号线程"""
+        """验证账号线程 - 支持双重保险"""
         try:
             checker = WebVPNGradeChecker(
                 self.username_var.get(),
-                self.password_var.get()
+                self.password_var.get(),
+                log_callback=self.log
             )
-            
-            # 步骤1：验证登录
-            if checker.login():
+
+            # 尝试WebVPN登录
+            webvpn_success = checker.login()
+
+            if webvpn_success:
                 self.log("✅ WebVPN登录成功")
-                
-                # 步骤2：访问教务系统
-                if checker.access_eamis():
-                    self.log("✅ 教务系统访问成功")
-                    
-                    # 步骤3：获取学期数据
-                    self.log("正在获取学期列表...")
-                    semester_list = checker.get_dynamic_semesters()
-                    
-                    if semester_list:
-                        self.log(f"✅ 成功获取 {len(semester_list)} 个学期")
-                        
-                        # 更新UI
-                        self.after(0, self._update_semester_options, semester_list)
-                        self.after(0, self._set_verification_success)
-                        
-                        # 保存学期数据到配置
-                        self.config['semester_data'] = semester_list
-                        self.log(f"学期数据已加入配置，共 {len(semester_list)} 个学期")
-                        self.after(0, self.save_config_clicked)
-                        
-                    else:
-                        self.log("❌ 获取学期列表失败")
-                        self.after(0, self._set_verification_failed, "获取学期列表失败")
-                else:
-                    self.log("❌ 教务系统访问失败")
-                    self.after(0, self._set_verification_failed, "教务系统访问失败")
+
+                # 访问教务系统
+                eamis_success = checker.access_eamis()
+                if not eamis_success:
+                    self.log("⚠️ WebVPN登录成功但教务系统访问失败")
+                    # 尝试EAMIS直接登录
+                    if not checker.try_eamis_direct_login():
+                        self.log("❌ 所有登录方式都失败了")
+                        self.after(0, self._set_verification_failed, "所有登录方式都失败")
+                        return
             else:
-                self.log("❌ WebVPN登录失败")
-                self.after(0, self._set_verification_failed, "WebVPN登录失败")
+                self.log("⚠️ WebVPN登录失败，尝试直接登录EAMIS...")
+                # WebVPN失败，直接尝试EAMIS登录
+                if not checker.try_eamis_direct_login():
+                    self.log("❌ 所有登录方式都失败了")
+                    self.after(0, self._set_verification_failed, "所有登录方式都失败")
+                    return
+
+            # 登录成功，获取学期数据
+            self.log(f"✅ 登录成功 (使用{'EAMIS直接登录' if checker.use_direct_eamis else 'WebVPN'})")
+            self.log("正在获取学期列表...")
+
+            semester_list = checker.get_dynamic_semesters()
+
+            if semester_list:
+                self.log(f"✅ 成功获取 {len(semester_list)} 个学期")
+
+                # 更新UI
+                self.after(0, self._update_semester_options, semester_list)
+                self.after(0, self._set_verification_success)
+
+                # 保存学期数据到配置
+                self.config['semester_data'] = semester_list
+                self.log(f"学期数据已加入配置，共 {len(semester_list)} 个学期")
+                self.after(0, self.save_config_clicked)
+
+            else:
+                self.log("❌ 获取学期列表失败")
+                self.after(0, self._set_verification_failed, "获取学期列表失败")
                 
         except Exception as e:
             self.log(f"❌ 验证过程出错: {e}")
@@ -793,29 +815,45 @@ class ModernGradeApp(ctk.CTk):
                 log_callback=self.log  # 传入日志回调
             )
             
-            # 后续代码保持不变，因为现在 checker 会自动将日志输出到GUI
-            if checker.login():
-                if checker.access_eamis():
-                    grades = checker.get_grades(semester_id)
-                    
-                    if grades:
-                        self.log(f"✅ 获取到 {len(grades)} 门成绩")
-                        self.after(0, self.display_grades, grades)
-                        self.after(0, self.update_stats, grades)
-                        self.after(0, lambda: self.set_status("✅ 查询成功", "green"))
-                        
-                        # 询问是否推送
-                        if self.token_var.get():
-                            self.after(0, self.ask_push, grades, checker, semester_id)
-                    else:
-                        self.log("❌ 未获取到成绩（该学期可能没有成绩）")
-                        self.after(0, lambda: self.set_status("❌ 未获取到成绩", "red"))
-                else:
-                    self.log("❌ 访问教务系统失败")
-                    self.after(0, lambda: self.set_status("❌ 访问失败", "red"))
+            # 双重保险登录机制
+            webvpn_success = checker.login()
+            if webvpn_success:
+                eamis_success = checker.access_eamis()
+                if not eamis_success:
+                    self.log("⚠️ WebVPN访问教务系统失败，尝试直接登录...")
+                    if not checker.try_eamis_direct_login():
+                        self.log("❌ 所有登录方式都失败")
+                        self.after(0, lambda: self.set_status("❌ 登录失败", "red"))
+                        return
             else:
-                self.log("❌ 登录失败")
-                self.after(0, lambda: self.set_status("❌ 登录失败", "red"))
+                self.log("⚠️ WebVPN登录失败，尝试直接登录教务系统...")
+                if not checker.try_eamis_direct_login():
+                    self.log("❌ 所有登录方式都失败")
+                    self.after(0, lambda: self.set_status("❌ 登录失败", "red"))
+                    return
+
+            # 获取成绩
+            grades = checker.get_grades(semester_id)
+
+            # 如果WebVPN方式获取成绩失败，自动尝试EAMIS直接登录
+            if not grades and not checker.use_direct_eamis:
+                self.log("⚠️ WebVPN方式获取成绩失败，尝试EAMIS直接登录...")
+                if checker.try_eamis_direct_login():
+                    self.log("重新获取成绩...")
+                    grades = checker.get_grades(semester_id)
+
+            if grades:
+                self.log(f"✅ 获取到 {len(grades)} 门成绩")
+                self.after(0, self.display_grades, grades)
+                self.after(0, self.update_stats, grades)
+                self.after(0, lambda: self.set_status("✅ 查询成功", "green"))
+
+                # 询问是否推送
+                if self.token_var.get():
+                    self.after(0, self.ask_push, grades, checker, semester_id)
+            else:
+                self.log("❌ 未获取到成绩（该学期可能没有成绩）")
+                self.after(0, lambda: self.set_status("❌ 未获取到成绩", "red"))
                 
         except Exception as e:
             self.log(f"❌ 出错: {str(e)}")
