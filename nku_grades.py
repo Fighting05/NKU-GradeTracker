@@ -5,6 +5,7 @@
 1. 完善日志系统，GUI可以获取详细日志
 2. 增强监控推送，使用HTML格式显示新成绩详情
 3. 统一日志接口，支持GUI和命令行双重输出
+4. 添加EAMIS直接登录作为备选方案（双重保险）
 """
 import requests
 import time
@@ -14,6 +15,7 @@ import os
 from datetime import datetime
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
+from eamis_direct_login import EamisDirectLogin
 
 def encrypt_password(password):
     """AES CBC加密南开大学WebVPN密码"""
@@ -32,7 +34,9 @@ class WebVPNGradeChecker:
         self.encrypted_password = encrypt_password(password)
         self.semester_data = None
         self.log_callback = log_callback  # GUI日志回调函数
-        
+        self.use_direct_eamis = False  # 标记是否使用直接eamis登录
+        self.eamis_base_url = "https://eamis.nankai.edu.cn"  # EAMIS直接访问URL
+
         # 设置请求头
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
@@ -56,18 +60,26 @@ class WebVPNGradeChecker:
     def get_dynamic_semesters(self):
         """动态获取当前用户的所有学期数据"""
         self.log("正在获取学期列表...")
-        
+
         try:
+            # 根据登录方式选择URL
+            if self.use_direct_eamis:
+                person_url = f"{self.eamis_base_url}/eams/teach/grade/course/person.action"
+                referer_url = f'{self.eamis_base_url}/eams/home.action'
+                vpn_params = {}
+            else:
+                person_url = f"{self.base_url}/https/77726476706e69737468656265737421f5f64c95347e6651700388a5d6502720dc08a5/eams/teach/grade/course/person.action"
+                referer_url = f'{self.base_url}/https/77726476706e69737468656265737421f5f64c95347e6651700388a5d6502720dc08a5/eams/home.action'
+                vpn_params = {'vpn-12-o2-eamis.nankai.edu.cn': ''}
+
             # 1. 访问成绩页面获取tagId
-            person_url = f"{self.base_url}/https/77726476706e69737468656265737421f5f64c95347e6651700388a5d6502720dc08a5/eams/teach/grade/course/person.action"
-            
             headers = {
                 'X-Requested-With': 'XMLHttpRequest',
-                'Referer': f'{self.base_url}/https/77726476706e69737468656265737421f5f64c95347e6651700388a5d6502720dc08a5/eams/home.action'
+                'Referer': referer_url
             }
-            
+
             self.session.headers.update(headers)
-            response = self.session.get(person_url, params={'vpn-12-o2-eamis.nankai.edu.cn': ''})
+            response = self.session.get(person_url, params=vpn_params)
             
             # 提取tagId
             tag_id_match = re.search(r'semesterBar(\d+)Semester', response.text)
@@ -79,23 +91,26 @@ class WebVPNGradeChecker:
                 tag_id = "semesterBar4452416521Semester"
             
             # 2. 调用dataQuery.action获取学期数据
-            data_query_url = f"{self.base_url}/https/77726476706e69737468656265737421f5f64c95347e6651700388a5d6502720dc08a5/eams/dataQuery.action"
-            
+            if self.use_direct_eamis:
+                data_query_url = f"{self.eamis_base_url}/eams/dataQuery.action"
+            else:
+                data_query_url = f"{self.base_url}/https/77726476706e69737468656265737421f5f64c95347e6651700388a5d6502720dc08a5/eams/dataQuery.action"
+
             data = {
                 'tagId': tag_id,
                 'dataType': 'semesterCalendar',
                 'value': '4324',
                 'empty': 'false'
             }
-            
+
             headers = {
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
                 'X-Requested-With': 'XMLHttpRequest',
-                'Referer': f'{self.base_url}/https/77726476706e69737468656265737421f5f64c95347e6651700388a5d6502720dc08a5/eams/home.action'
+                'Referer': referer_url
             }
-            
+
             self.session.headers.update(headers)
-            response = self.session.post(data_query_url, data=data, params={'vpn-12-o2-eamis.nankai.edu.cn': ''})
+            response = self.session.post(data_query_url, data=data, params=vpn_params)
             
             if response.status_code == 200:
                 self.log("✅ 成功获取学期数据")
@@ -105,9 +120,23 @@ class WebVPNGradeChecker:
                     self.log(f"✅ 找到 {len(formatted_semesters)} 个可用学期")
                     return formatted_semesters
                 else:
+                    # 如果WebVPN方式解析失败，尝试EAMIS直接登录
+                    if not self.use_direct_eamis:
+                        self.log("⚠️ WebVPN方式获取学期数据失败，尝试EAMIS直接登录...")
+                        if self.try_eamis_direct_login():
+                            self.log("重新获取学期列表...")
+                            return self.get_dynamic_semesters()
+
                     self.log("⚠️ 解析学期数据失败，使用默认数据")
                     return self._get_default_semesters()
             else:
+                # 如果WebVPN方式状态码错误，尝试EAMIS直接登录
+                if not self.use_direct_eamis:
+                    self.log("⚠️ WebVPN方式获取学期数据失败，尝试EAMIS直接登录...")
+                    if self.try_eamis_direct_login():
+                        self.log("重新获取学期列表...")
+                        return self.get_dynamic_semesters()
+
                 self.log(f"❌ 获取学期数据失败，状态码: {response.status_code}")
                 return self._get_default_semesters()
                 
@@ -272,80 +301,129 @@ class WebVPNGradeChecker:
     def access_eamis(self):
         """访问教务系统"""
         self.log("正在访问教务系统...")
-        
+
         try:
             timestamp = int(time.time() * 1000)
-            
+
             # 访问教务系统
             self.session.get(f"{self.base_url}/https/77726476706e69737468656265737421f5f64c95347e6651700388a5d6502720dc08a5/eams?wrdrecordvisit={timestamp}")
-            
+
             # 访问主页
             home_url = f"{self.base_url}/https/77726476706e69737468656265737421f5f64c95347e6651700388a5d6502720dc08a5/eams/home.action"
             home_response = self.session.get(home_url)
-            
+
             if home_response.status_code == 200 or "教务系统" in home_response.text:
                 self.log("✅ 成功进入教务系统")
                 return True
             else:
                 self.log("❌ 访问教务系统失败")
                 return False
-                
+
         except Exception as e:
             self.log(f"❌ 访问教务系统出错: {e}")
+            return False
+
+    def try_eamis_direct_login(self):
+        """
+        尝试EAMIS直接登录（不经过WebVPN）
+        作为WebVPN失败时的备选方案
+
+        Returns:
+            是否登录成功
+        """
+        self.log("\n" + "="*50)
+        self.log("WebVPN方式失败，尝试直接登录EAMIS...")
+        self.log("="*50)
+
+        try:
+            # 使用EAMIS直接登录模块
+            eamis_login = EamisDirectLogin(self.username, self.password, self.log_callback)
+
+            if eamis_login.login():
+                # 登录成功，切换到直接访问模式
+                self.session = eamis_login.get_session()
+                self.use_direct_eamis = True
+                self.log("✅ EAMIS直接登录成功，已切换到直接访问模式")
+                return True
+            else:
+                self.log("❌ EAMIS直接登录也失败了")
+                return False
+
+        except Exception as e:
+            self.log(f"❌ EAMIS直接登录出错: {e}")
             return False
     
     def get_grades(self, semester_id="4324"):
         """获取指定学期的成绩"""
         self.log(f"正在获取学期 {semester_id} 的成绩...")
-        
-        person_url = f"{self.base_url}/https/77726476706e69737468656265737421f5f64c95347e6651700388a5d6502720dc08a5/eams/teach/grade/course/person.action"
-        
+
+        # 根据登录方式选择URL
+        if self.use_direct_eamis:
+            # 直接访问EAMIS
+            person_url = f"{self.eamis_base_url}/eams/teach/grade/course/person.action"
+            referer_url = f"{self.eamis_base_url}/eams/home.action"
+            vpn_params = {}  # 直接访问不需要VPN参数
+        else:
+            # 通过WebVPN访问
+            person_url = f"{self.base_url}/https/77726476706e69737468656265737421f5f64c95347e6651700388a5d6502720dc08a5/eams/teach/grade/course/person.action"
+            referer_url = f'{self.base_url}/https/77726476706e69737468656265737421f5f64c95347e6651700388a5d6502720dc08a5/eams/home.action'
+            vpn_params = {'vpn-12-o2-eamis.nankai.edu.cn': ''}
+
         headers = {
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
             'X-Requested-With': 'XMLHttpRequest',
-            'Referer': f'{self.base_url}/https/77726476706e69737468656265737421f5f64c95347e6651700388a5d6502720dc08a5/eams/home.action'
+            'Referer': referer_url
         }
-        
+
         original_headers = self.session.headers.copy()
         self.session.headers.update(headers)
-        
+
         try:
             # POST请求
-            response = self.session.post(person_url, 
-                                    data={'project.id': '1', 'semester.id': semester_id}, 
-                                    params={'vpn-12-o2-eamis.nankai.edu.cn': ''})
+            response = self.session.post(person_url,
+                                    data={'project.id': '1', 'semester.id': semester_id},
+                                    params=vpn_params)
             
             # 提取tagId
             tag_id_match = re.search(r'semesterBar(\d+)Semester', response.text)
             tag_id = f"semesterBar{tag_id_match.group(1)}Semester" if tag_id_match else "semesterBar13572391471Semester"
-            
+
             # 步骤2：查询学期日历数据
-            data_query_url = f"{self.base_url}/https/77726476706e69737468656265737421f5f64c95347e6651700388a5d6502720dc08a5/eams/dataQuery.action"
-            
-            self.session.post(data_query_url, 
+            if self.use_direct_eamis:
+                data_query_url = f"{self.eamis_base_url}/eams/dataQuery.action"
+            else:
+                data_query_url = f"{self.base_url}/https/77726476706e69737468656265737421f5f64c95347e6651700388a5d6502720dc08a5/eams/dataQuery.action"
+
+            self.session.post(data_query_url,
                             data={'tagId': tag_id, 'dataType': 'semesterCalendar', 'value': semester_id, 'empty': 'false'},
-                            params={'vpn-12-o2-eamis.nankai.edu.cn': ''})
-            
+                            params=vpn_params)
+
             # 步骤3：查询实体ID
-            self.session.post(data_query_url, 
+            self.session.post(data_query_url,
                             data={'entityId': '1'},
-                            params={'vpn-12-o2-eamis.nankai.edu.cn': ''})
-            
+                            params=vpn_params)
+
             # 步骤4：最终GET请求获取成绩数据
             timestamp = int(time.time() * 1000)
-            final_url = f"{self.base_url}/https/77726476706e69737468656265737421f5f64c95347e6651700388a5d6502720dc08a5/eams/teach/grade/course/person!search.action"
-            
+            if self.use_direct_eamis:
+                final_url = f"{self.eamis_base_url}/eams/teach/grade/course/person!search.action"
+                ajax_referer = f'{self.eamis_base_url}/eams/teach/grade/course/person!search.action?semesterId={semester_id}&projectType='
+            else:
+                final_url = f"{self.base_url}/https/77726476706e69737468656265737421f5f64c95347e6651700388a5d6502720dc08a5/eams/teach/grade/course/person!search.action"
+                ajax_referer = f'{self.base_url}/https/77726476706e69737468656265737421f5f64c95347e6651700388a5d6502720dc08a5/eams/teach/grade/course/person!search.action?semesterId={semester_id}&projectType='
+
             ajax_headers = {
                 'Accept': 'text/html, */*; q=0.01',
                 'X-Requested-With': 'XMLHttpRequest',
-                'Referer': f'{self.base_url}/https/77726476706e69737468656265737421f5f64c95347e6651700388a5d6502720dc08a5/eams/teach/grade/course/person!search.action?semesterId={semester_id}&projectType='
+                'Referer': ajax_referer
             }
-            
+
             self.session.headers.update(ajax_headers)
-            
-            final_response = self.session.get(final_url, 
-                                            params={'vpn-12-o2-eamis.nankai.edu.cn': '', 'semesterId': semester_id, 
-                                                'projectType': '', '_': timestamp})
+
+            search_params = {'semesterId': semester_id, 'projectType': '', '_': timestamp}
+            search_params.update(vpn_params)
+
+            final_response = self.session.get(final_url, params=search_params)
             
             # 兼容不同成绩制度的检查条件
             response_text = final_response.text
@@ -848,17 +926,38 @@ class WebVPNGradeChecker:
             return available_semesters[0]['id']
     
     def run(self, semester_id=None, pushplus_token=None):
-        """运行完整流程"""
-        if not self.login():
-            return
-        
-        if not self.access_eamis():
-            return
-        
+        """运行完整流程 - 支持双重保险"""
+        # 尝试WebVPN登录
+        webvpn_success = self.login()
+
+        if webvpn_success:
+            eamis_success = self.access_eamis()
+            if not eamis_success:
+                # WebVPN登录成功但教务系统访问失败，尝试直接eamis登录
+                self.log("⚠️ WebVPN登录成功但教务系统访问失败")
+                if not self.try_eamis_direct_login():
+                    self.log("❌ 所有登录方式都失败了")
+                    return
+        else:
+            # WebVPN登录失败，直接尝试eamis登录
+            self.log("⚠️ WebVPN登录失败")
+            if not self.try_eamis_direct_login():
+                self.log("❌ 所有登录方式都失败了")
+                return
+
         if not semester_id:
             semester_id = self.select_semester()
-        
+
         grades = self.get_grades(semester_id)
+
+        # 如果WebVPN方式获取成绩失败，自动尝试EAMIS直接登录
+        if not grades and not self.use_direct_eamis:
+            self.log("\n⚠️ WebVPN方式获取成绩失败，尝试EAMIS直接登录...")
+            if self.try_eamis_direct_login():
+                self.log("重新获取学期列表...")
+                if not semester_id:
+                    semester_id = self.select_semester()
+                grades = self.get_grades(semester_id)
         
         if grades:
             self.log(f"\n✅ 成功获取到 {len(grades)} 条成绩记录")
@@ -929,9 +1028,17 @@ class GradeMonitor(WebVPNGradeChecker):
     def check_grades(self, semester_id="4324"):
         """检查成绩变化 - 增强版"""
         self.log(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] 开始检查学期 {semester_id} 的成绩...")
-        
+
         # 获取当前成绩
         current_grades = self.get_grades(semester_id)
+
+        # 如果WebVPN方式获取成绩失败，自动尝试EAMIS直接登录
+        if not current_grades and not self.use_direct_eamis:
+            self.log("⚠️ WebVPN方式获取成绩失败，尝试EAMIS直接登录...")
+            if self.try_eamis_direct_login():
+                self.log("重新获取成绩...")
+                current_grades = self.get_grades(semester_id)
+
         if not current_grades:
             self.log("❌ 未获取到成绩数据，跳过本次检查")
             return False
@@ -1170,19 +1277,29 @@ class GradeMonitor(WebVPNGradeChecker):
                 self.log(f"🔍 第 {check_count} 次检查 - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
                 self.log(f"{'='*60}")
                 
-                # 登录检查
-                if not self.login():
-                    self.log("❌ 登录失败，等待下次检查")
-                elif not self.access_eamis():
-                    self.log("❌ 访问教务系统失败，等待下次检查")
+                # 登录检查 - 使用双重保险机制
+                webvpn_success = self.login()
+
+                if webvpn_success:
+                    eamis_success = self.access_eamis()
+                    if not eamis_success:
+                        self.log("⚠️ WebVPN登录成功但教务系统访问失败，尝试直接登录...")
+                        if not self.try_eamis_direct_login():
+                            self.log("❌ 所有登录方式都失败，等待下次检查")
+                            continue
                 else:
-                    # 检查成绩
-                    has_changes = self.check_grades(semester_id)
+                    self.log("⚠️ WebVPN登录失败，尝试直接登录...")
+                    if not self.try_eamis_direct_login():
+                        self.log("❌ 所有登录方式都失败，等待下次检查")
+                        continue
+
+                # 检查成绩
+                has_changes = self.check_grades(semester_id)
                     
-                    if has_changes:
-                        self.log("🎊 本次检查发现成绩变化！")
-                    else:
-                        self.log("😴 本次检查无变化")
+                if has_changes:
+                    self.log("🎊 本次检查发现成绩变化！")
+                else:
+                    self.log("😴 本次检查无变化")
                 
                 # 计算下次检查时间
                 next_check_time = datetime.now()

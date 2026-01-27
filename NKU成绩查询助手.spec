@@ -1,9 +1,18 @@
 # -*- mode: python ; coding: utf-8 -*-
 from PyInstaller.utils.hooks import collect_all
+import os
 
 datas = []
 binaries = []
-hiddenimports = ['beautifulsoup4', 'bs4', 'Crypto']
+hiddenimports = ['beautifulsoup4', 'bs4', 'Crypto', '_ssl', '_hashlib']
+
+# 添加SSL相关DLL
+ssl_dll_path = r'd:\30515\anaconda\envs\new\Library\bin'
+binaries += [
+    (os.path.join(ssl_dll_path, 'libssl-3-x64.dll'), '.'),
+    (os.path.join(ssl_dll_path, 'libcrypto-3-x64.dll'), '.'),
+]
+
 tmp_ret = collect_all('customtkinter')
 datas += tmp_ret[0]; binaries += tmp_ret[1]; hiddenimports += tmp_ret[2]
 
